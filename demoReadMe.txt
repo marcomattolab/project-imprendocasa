@@ -1,0 +1,2 @@
+- Progetto Demo Jhipster 5.3.1 : http://192.168.0.237:8080/impcasa
+- Progetto Demo Jhipster 5.4.2 : TODO
