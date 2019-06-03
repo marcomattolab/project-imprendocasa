@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mailTemplate">
+            <h2><span jhiTranslate="imprendocasaApp.mailTemplate.detail.title">Mail Template</span>
+                {{mailTemplate.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="imprendocasaApp.mailTemplate.categoria">Categoria</span></dt>
+                <dd>
+                    <span>{{mailTemplate.categoria}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.mailTemplate.modello">Modello</span></dt>
+                <dd class="p-sm-3" [innerHTML]="mailTemplate.modello">
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.mailTemplate.abilitato">Abilitato</span></dt>
+                <dd>
+                    <span>{{mailTemplate.abilitato}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/mail-template', mailTemplate.id, 'edit']" class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

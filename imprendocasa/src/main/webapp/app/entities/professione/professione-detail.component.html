@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="professione">
+            <h2><span jhiTranslate="imprendocasaApp.professione.detail.title">Professione</span> {{professione.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="imprendocasaApp.professione.codice">Codice</span></dt>
+                <dd>
+                    <span>{{professione.codice}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.professione.denominazione">Denominazione</span></dt>
+                <dd>
+                    <span>{{professione.denominazione}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.professione.abilitato">Abilitato</span></dt>
+                <dd>
+                    <span>{{professione.abilitato}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/professione', professione.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

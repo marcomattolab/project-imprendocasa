@@ -1,0 +1,37 @@
+{
+    "imprendocasaApp": {
+        "immobile": {
+            "cap": "Cap",
+            "citta": "Citta",
+            "codice": "Codice",
+            "created": "A new Immobile is created with identifier {{ param }}",
+            "datiCatastali": "Dati Catastali",
+            "delete": {
+                "question": "Are you sure you want to delete Immobile {{ id }}?"
+            },
+            "deleted": "A Immobile is deleted with identifier {{ param }}",
+            "descrizione": "Descrizione",
+            "detail": {
+                "title": "Immobile"
+            },
+            "files": "Files",
+            "foglio": "Sheet",
+            "geolocalizzazione": "Geolocalizzazione",
+            "home": {
+                "createLabel": "New Immobile",
+                "createOrEditLabel": "Create or edit a Immobile",
+                "title": "Immobili"
+            },
+            "incarico": "Incarico",
+            "indirizzo": "Indirizzo",
+            "locazione": "Location",
+            "note": "Note",
+            "pathFolder": "Path Folder",
+            "provincia": "Provincia",
+            "particella": "Particle",
+            "regione": "Regione",
+            "sub": "Sub",
+            "updated": "A Immobile is updated with identifier {{ param }}"
+        }
+    }
+}

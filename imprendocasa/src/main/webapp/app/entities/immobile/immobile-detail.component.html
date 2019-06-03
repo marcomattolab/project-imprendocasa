@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="immobile">
+            <!-- <h2><span jhiTranslate="imprendocasaApp.immobile.detail.title">Immobile</span> {{immobile.id}}</h2> -->
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <section class="container-dl">
+                <h3 style="text-align: center">Dettagli Immobile</h3>
+                <!-- Standard sized summary table    -->
+                <article class="summary-table">
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--left">
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.codice" class="summary-table__key">Codice
+                                </dt>
+                                <dd class="summary-table__value">{{immobile.codice}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.descrizione" class="summary-table__key">
+                                    Descrizione
+                                </dt>
+                                <dd class="summary-table__value"> {{immobile.descrizione}} </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.indirizzo" class="summary-table__key">
+                                    Indirizzo
+                                </dt>
+                                <dd class="summary-table__value">{{immobile.indirizzo}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.cap" class="summary-table__key">Cap</dt>
+                                <dd class="summary-table__value">{{immobile.cap}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.regione" class="summary-table__key">Regione
+                                </dt>
+                                <dd class="summary-table__value">{{immobile.regione}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.provincia" class="summary-table__key">
+                                    Provincia
+                                </dt>
+                                <dd class="summary-table__value">{{immobile.provincia}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.citta" class="summary-table__key">Citta'</dt>
+                                <dd class="summary-table__value">{{immobile.citta}}</dd>
+                            </div>
+                        </dl>
+                    </section>
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--right">
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.foglio" class="summary-table__key">Foglio
+                                </dt>
+                                <dd class="summary-table__value">{{immobile.foglio}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.particella" class="summary-table__key">
+                                    Particella
+                                </dt>
+                                <dd class="summary-table__value">{{immobile.particella}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.sub" class="summary-table__key">Sub'</dt>
+                                <dd class="summary-table__value">{{immobile.sub}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.cliente.agente" class="summary-table__key">agente</dt>
+                                <dd class="summary-table__value">{{immobile.agente}}</dd>
+                            </div>
+                            <!-- 
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.immobile.datiCatastali">Dati Catastali</span></dt>
+                                <dd class="summary-table__value">{{immobile.datiCatastali}}</dd>
+                            </div>
+                            -->
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.note" class="summary-table__key">Note</dt>
+                                <dd class="summary-table__value">{{immobile.note}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt jhiTranslate="imprendocasaApp.immobile.files" class="summary-table__key">File
+                                    Associati
+                                </dt>
+                                <dd class="summary-table__value">
+                                    <span *ngFor="let file of uploadArray[0] let last = last">
+                                      <a href="api/files/{{immobile.id}}/{{file.nome}}">{{file.nome}}</a>{{last ? '' : ', '}}
+                                    </span>
+                                </dd>
+                            </div>
+                        </dl>
+                    </section>
+                </article>
+            </section>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/immobile', immobile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

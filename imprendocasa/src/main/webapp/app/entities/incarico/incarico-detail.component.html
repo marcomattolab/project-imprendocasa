@@ -1,0 +1,161 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="incarico">
+            <h2>
+                <span jhiTranslate="imprendocasaApp.incarico.detail.title">Incarico</span> {{incarico.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <section class="container-dl">
+                <h3 style="text-align: center">Dettagli Incarico</h3>
+                <!-- Standard sized summary table    -->
+                <article class="summary-table">
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--left">
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Riferimento</dt>
+                                <dd class="summary-table__value">{{incarico.riferimento}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Tipo</dt>
+                                <dd class="summary-table__value">{{incarico.tipo}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Data Scadenza</dt>
+                                <dd class="summary-table__value">{{incarico.dataScadenza}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Stato</dt>
+                                <dd class="summary-table__value">{{incarico.stato}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Agente</dt>
+                                <dd class="summary-table__value">{{incarico.agente}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Agente di contatto</dt>
+                                <dd class="summary-table__value">{{incarico.agenteDiContatto}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Data contatto</dt>
+                                <dd class="summary-table__value">{{incarico.dataContatto}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Partner</dt>
+                                <dd class="summary-table__value">
+                                    <span *ngFor="let partner of incarico.partners; let last = last">
+                                        <a [routerLink]="['/partner', partner?.id, 'view' ]">{{partner.cognome}}</a>{{last ? '' : ', '}}
+                                    </span>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Committenti</dt>
+                                <dd class="summary-table__value">
+                                    <span *ngFor="let committente of incarico.committentes; let last = last">
+				                        <a [routerLink]="['/cliente', committente?.id, 'view' ]">{{committente.cognome}}</a>{{last ? '' : ', '}}
+				                    </span>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Segnalatori</dt>
+                                <dd class="summary-table__value">
+                                     <span *ngFor="let segnalatore of incarico.segnalatores; let last = last">
+				                        <a [routerLink]="['/cliente', segnalatore?.id, 'view' ]">{{segnalatore.cognome}}</a>{{last ? '' : ', '}}
+				                    </span>
+                                </dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--right">
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Note trattativa</dt>
+                                <dd class="summary-table__value">{{incarico.noteTrattativa}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Dati fiscali</dt>
+                                <dd class="summary-table__value">{{incarico.datiFiscali}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Alert Fiscali</dt>
+                                <dd class="summary-table__value">{{incarico.alertFiscali}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Alet Cortesia</dt>
+                                <dd class="summary-table__value">{{incarico.alertCortesia}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Oscura</dt>
+                                <dd class="summary-table__value">{{incarico.oscuraIncarico}}</dd>
+                            </div>
+                            
+                            <!-- TODO ADD THESE FIELDS WITH  jhiTranslate !!!!! for ALL!!!!-->
+                            <!-- 
+                            <dt><span jhiTranslate="imprendocasaApp.incarico.flagLocato">Flag Locato</span></dt>
+			                <dd>
+			                    <span>{{incarico.flagLocato}}</span>
+			                </dd>
+			                <dt><span jhiTranslate="imprendocasaApp.incarico.nomeConduttore">Nome Conduttore</span></dt>
+			                <dd>
+			                    <span>{{incarico.nomeConduttore}}</span>
+			                </dd>
+			                <dt><span jhiTranslate="imprendocasaApp.incarico.cognomeConduttore">Cognome Conduttore</span></dt>
+			                <dd>
+			                    <span>{{incarico.cognomeConduttore}}</span>
+			                </dd>
+			                <dt><span jhiTranslate="imprendocasaApp.incarico.dataInizioLocazione">Data Inizio Locazione</span></dt>
+			                <dd>
+			                    <span>{{incarico.dataInizioLocazione}}</span>
+			                </dd>
+			                <dt><span jhiTranslate="imprendocasaApp.incarico.dataFineLocazione">Data Fine Locazione</span></dt>
+			                <dd>
+			                    <span>{{incarico.dataFineLocazione}}</span>
+			                </dd>
+			                <dt><span jhiTranslate="imprendocasaApp.incarico.noteLocazione">Note Locazione</span></dt>
+			                <dd>
+			                    <span>{{incarico.noteLocazione}}</span>
+			                </dd>
+                             -->
+                            
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Proponenti</dt>
+                                <dd class="summary-table__value">
+                                     <span *ngFor="let proponente of incarico.proponentes; let last = last">
+				                        <a [routerLink]="['/cliente', proponente?.id, 'view' ]">{{proponente.cognome}}</a>{{last ? '' : ', '}}
+				                    </span>
+                                </dd>
+                            </div>
+                             <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Acquirente/Locatario</dt>
+                                <dd class="summary-table__value">
+				 					<span *ngFor="let acquirenteLocatario of incarico.acquirenteLocatarios; let last = last">
+				                        <a [routerLink]="['/cliente', acquirenteLocatario?.id, 'view' ]">{{acquirenteLocatario.cognome}}</a>{{last ? '' : ', '}}
+				                    </span>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Immobile</dt>
+                                <dd class="summary-table__value">
+                                    <div *ngIf="incarico.immobileId">
+                                        <a [routerLink]="['/immobile', incarico.immobileId, 'view']">{{incarico.immobileCodice}}</a>
+                                    </div>
+                                </dd>
+                            </div>
+                        </dl>
+                    </section>
+                </article>
+            </section>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;
+                <span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/incarico', incarico.id, 'edit']" class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;
+                <span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
+

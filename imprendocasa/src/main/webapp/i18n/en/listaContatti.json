@@ -1,0 +1,34 @@
+{
+  "imprendocasaApp": {
+    "EsitoChiamata": {
+      "null": "",
+      "ESEGUITA": "Executed",
+      "NON_RAGGIUNGIBILE": "Not reachable",
+      "OCCUPATO": "Busy",
+      "NON_INTERESSATO": "Not interested"
+    },
+    "listaContatti": {
+      "cliente": "Customer",
+      "committente": "Committente",
+      "created": "A new contact is created with identifier {{ param }}",
+      "dateTime": "Date Time",
+      "delete": {
+        "question": "Are you sure you want to delete contact {{ id }}?"
+      },
+      "deleted": "A contact is deleted with identifier {{ param }}",
+      "detail": {
+        "title": "Contact detail"
+      },
+      "esito": "Result",
+      "home": {
+        "createLabel": "New contact",
+        "createOrEditLabel": "Create or edit a contact",
+        "title": "Contact list"
+      },
+      "incarico": "Transation",
+      "motivazione": "Reason",
+      "note": "Note",
+      "updated": "A contact is updated with identifier {{ param }}"
+    }
+  }
+}

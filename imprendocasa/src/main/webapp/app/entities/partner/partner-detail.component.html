@@ -1,0 +1,198 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="partner">
+            <!-- 
+            <h2><span jhiTranslate="imprendocasaApp.partner.detail.title">Partner</span> {{partner.id}}</h2> 
+            -->
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <section class="container-dl">
+                <h3 style="text-align: center">Dettagli Partner</h3>
+                <!-- Standard sized summary table    -->
+                <article class="summary-table">
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--left">
+
+                            <!-- TODO USARE LA TRADUZIONE DI ANGULAR PER TUTTI I CAMPI !!!!!!! -->
+
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Nome</dt>
+                                <dd class="summary-table__value">{{partner.nome}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Cognome</dt>
+                                <dd class="summary-table__value">{{partner.cognome}}</dd>
+                            </div>
+                            
+                            <!-- 
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Professione</dt>
+                                <dd class="summary-table__value">{{partner.professione}}</dd>
+                            </div>
+                             -->
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Professione</dt>
+                                <dd class="summary-table__value">{{partner.professioneDenominazione}}</dd>
+                                <!-- 
+                                <a [routerLink]="['/professione', partner.professioneId, 'view']">{{partner.professioneDenominazione}}</a>
+                                 -->
+                            </div>
+                            
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Telefono Fisso</dt>
+                                <dd class="summary-table__value">{{partner.telefonoFisso}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Telefono Cellulare</dt>
+                                <dd class="summary-table__value">{{partner.telefonoCellulare}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Provincia</dt>
+                                <dd class="summary-table__value">{{partner.provincia}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Citta</dt>
+                                <dd class="summary-table__value">{{partner.citta}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Cap</dt>
+                                <dd class="summary-table__value">{{partner.cap}}</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--right">
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Codice Fiscale</dt>
+                                <dd class="summary-table__value">{{partner.codiceFiscale}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Email</dt>
+                                <dd class="summary-table__value">{{partner.email}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Tipo indirizzo</dt>
+                                <dd class="summary-table__value summary-table__value--primary">{{partner.tipoIndirizzo}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">indirizzo</dt>
+                                <dd class="summary-table__value">{{partner.indirizzo}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Note</dt>
+                                <dd class="summary-table__value">{{partner.note}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Abilitato</dt>
+                                <dd class="summary-table__value">{{partner.abilitato}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Regione</dt>
+                                <dd class="summary-table__value">{{partner.regione}}</dd>
+                            </div>
+                        </dl>
+                    </section>
+                </article>
+            </section>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;
+                <span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/partner', partner.id, 'edit']" class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;
+                <span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="partner">
+            <h2><span jhiTranslate="imprendocasaApp.partner.detail.title">Partner</span> {{partner.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="imprendocasaApp.partner.nome">Nome</span></dt>
+                <dd>
+                    <span>{{partner.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.cognome">Cognome</span></dt>
+                <dd>
+                    <span>{{partner.cognome}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.codiceFiscale">Codice Fiscale</span></dt>
+                <dd>
+                    <span>{{partner.codiceFiscale}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.telefonoFisso">Telefono Fisso</span></dt>
+                <dd>
+                    <span>{{partner.telefonoFisso}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.telefonoCellulare">Telefono Cellulare</span></dt>
+                <dd>
+                    <span>{{partner.telefonoCellulare}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.email">Email</span></dt>
+                <dd>
+                    <span>{{partner.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.tipoIndirizzo">Tipo Indirizzo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'imprendocasaApp.TipoIndirizzo.' + partner.tipoIndirizzo}}">{{partner.tipoIndirizzo}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.indirizzo">Indirizzo</span></dt>
+                <dd>
+                    <span>{{partner.indirizzo}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.cap">Cap</span></dt>
+                <dd>
+                    <span>{{partner.cap}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.regione">Regione</span></dt>
+                <dd>
+                    <span>{{partner.regione}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.provincia">Provincia</span></dt>
+                <dd>
+                    <span>{{partner.provincia}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.citta">Citta</span></dt>
+                <dd>
+                    <span>{{partner.citta}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.note">Note</span></dt>
+                <dd>
+                    <span>{{partner.note}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.abilitato">Abilitato</span></dt>
+                <dd>
+                    <span>{{partner.abilitato}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.partner.professione">Professione</span></dt>
+                <dd>
+                    <div *ngIf="partner.professioneId">
+                        <a [routerLink]="['/professione', partner.professioneId, 'view']">{{partner.professioneDenominazione}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/partner', partner.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
+ -->

@@ -1,0 +1,228 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="imprendocasaApp.immobile.home.title">Immobiles</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <ngb-accordion #acc="ngbAccordion" activeIds="filtriPanel">
+        <ngb-panel id="filtriPanel">
+            <ng-template ngbPanelTitle>
+                <span jhiTranslate="global.search.filtersLabel">Filtri</span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <form (ngSubmit)="cerca()">
+                    <div class="row" [formGroup]="formImmobile">
+                        <div class="col-md-4">
+                            <!--<div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.immobile.codice">Codice Immobile</label>
+                                <input formControlName="codice" id="codice" type="text" class="form-control"/>
+                            </div>-->
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.immobile.descrizione">Descrizione</label>
+                                <input formControlName="descrizione" id="descrizione" type="text" class="form-control"/>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                        <label jhiTranslate="imprendocasaApp.immobile.citta">Citta'</label>
+                                        <input formControlName="citta" id="citta" type="text" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                        <label jhiTranslate="imprendocasaApp.immobile.provincia">Provincia</label>
+                                        <input formControlName="provincia" type="text" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.immobile.indirizzo">Indirizzo</label>
+                                <input formControlName="indirizzo" id="indirizzo" type="text" class="form-control"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                        <label jhiTranslate="imprendocasaApp.immobile.cap">Cap'</label>
+                                        <input formControlName="cap" id="cap" type="text" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                        <label jhiTranslate="imprendocasaApp.immobile.foglio"
+                                               for="field_foglio">Foglio</label>
+                                        <input formControlName="foglio" type="text" class="form-control" name="foglio"
+                                               id="field_foglio"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.immobile.note">Note'</label>
+                                <input formControlName="note" id="note" type="text" class="form-control"/>
+                            </div>-->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.immobile.regione">Regione</label>
+                                <input formControlName="regione" id="regione" type="text" class="form-control"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label jhiTranslate="imprendocasaApp.immobile.sub" for="field_sub">Sub</label>
+                                    <input formControlName="sub" type="text" class="form-control" name="sub"
+                                           id="field_sub"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                        <label jhiTranslate="imprendocasaApp.immobile.particella"
+                                               for="field_particella">Particella</label>
+                                        <input formControlName="particella" type="text" class="form-control"
+                                               name="particella" id="field_particella"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                 <label jhiTranslate="imprendocasaApp.immobile.cap">Dati Catastali</label>
+                                 <input formControlName="datiCatastali" id="datiCastali" type="text" class="form-control"/>
+                             </div> -->
+                        </div>
+                    </div>
+                        <div class="form-group float-right">
+                            <button class="btn btn-link" type="button" (click)="resetFiltri()">
+                                <span jhiTranslate="global.search.clearfiltersLabel">Pulisci Filtri</span>
+                            </button>
+                            <button class="btn btn-primary" type="submit">
+                                <fa-icon [icon]="'search'"></fa-icon>
+                                <span jhiTranslate="global.search.buttonLabel">Cerca</span>
+                            </button>
+                            <button class="btn btn-secondary jh-create-entity create-immobile"
+                                    [routerLink]="['/immobile/new']" type="button">
+                                <fa-icon [icon]="'plus'"></fa-icon>
+                                <span jhiTranslate="imprendocasaApp.immobile.home.createLabel">Create new Immobile</span>
+                            </button>
+                        </div>
+                </form>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+    <br/>
+    <div class="table-responsive" *ngIf="immobiles">
+        <table class="table table-striped">
+            <thead>
+            <tr class="text-center-exclude-first no-wrap" jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
+                [callback]="transition.bind(this)">
+                <!-- <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+                <!-- <th jhiSortBy="codice">
+                     <span jhiTranslate="imprendocasaApp.immobile.codice">Codice</span>
+                     <fa-icon [icon]="'sort'"></fa-icon>-->
+                </th>
+                <th jhiSortBy="descrizione">
+                    <span jhiTranslate="imprendocasaApp.immobile.descrizione">Descrizione</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="indirizzo">
+                    <span jhiTranslate="imprendocasaApp.immobile.indirizzo">Indirizzo</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="cap">
+                    <span jhiTranslate="imprendocasaApp.immobile.cap">Cap</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="regione">
+                    <span jhiTranslate="imprendocasaApp.immobile.regione">Regione</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="provincia">
+                    <span jhiTranslate="imprendocasaApp.immobile.provincia">Provincia</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="citta">
+                    <span jhiTranslate="imprendocasaApp.immobile.citta">Citta</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="foglio">
+                    <span jhiTranslate="imprendocasaApp.immobile.foglio">foglio</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="particella">
+                    <span jhiTranslate="imprendocasaApp.immobile.particella">Particella</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <th jhiSortBy="sub">
+                    <span jhiTranslate="imprendocasaApp.immobile.sub">Sub</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th>
+                <!-- <th jhiSortBy="note"><span jhiTranslate="imprendocasaApp.immobile.note">Note</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+                <!-- <th jhiAuthority="'ROLE_SUPER_ADMIN'" jhiSortBy="pathFolder"><span jhiTranslate="imprendocasaApp.immobile.pathFolder">Path Folder</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+                <!-- <th jhiSortBy="geolocalizzazioneImmobile"><span jhiTranslate="imprendocasaApp.immobile.geolocalizzazione">Geolocalizzazione</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+                <!-- <th jhiSortBy="datiCatastali"><span jhiTranslate="demoMarcoApp.immobile.datiCatastali">Dati Catastali</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+                <!-- <th>
+                    <span>Completato al</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th> -->
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center-exclude-first no-wrap" *ngFor="let immobile of immobiles ;trackBy: trackId">
+                <!-- <td><a [routerLink]="['/immobile', immobile.id, 'view' ]">{{immobile.id}}</a></td> -->
+                <!--<td>{{immobile.codice}}</td>-->
+                <td>{{immobile.descrizione}}</td>
+                <td>{{immobile.indirizzo}}</td>
+                <td>{{immobile.cap}}</td>
+                <td>{{immobile.regione}}</td>
+                <td>{{immobile.provincia}}</td>
+                <td>{{immobile.citta}}</td>
+                <td>{{immobile.foglio}}</td>
+                <td>{{immobile.particella}}</td>
+                <td>{{immobile.sub}}</td>
+                <!-- <td>{{immobile.note}}</td> -->
+                <!-- <td >{{immobile.pathFolder}}</td> -->
+                <!-- <td>{{immobile.datiCatastali}}</td> -->
+                <!--
+                <td>
+                        <div *ngIf="immobile.geolocalizzazioneId">
+                            <a [routerLink]="['../geolocalizzazione', immobile.geolocalizzazioneId , 'view' ]" >{{immobile.geolocalizzazioneImmobile}}</a>
+                        </div>
+                    </td>
+                    -->
+                <!-- <td>{{retrieveCompletamento(immobile.id)}}%</td> -->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit" [routerLink]="['/immobile', immobile.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button *ngIf="immobile.editAvaiable" type="submit"
+                                [routerLink]="['/immobile', immobile.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button *ngIf="immobile.deleteAvaiable" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'immobile/'+ immobile.id + '/delete'} }]"
+                                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="immobiles && immobiles.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true"
+                            (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
+

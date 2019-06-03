@@ -1,0 +1,29 @@
+{
+    "imprendocasaApp": {
+        "notifiche": {
+            "home": {
+                "title": "Notifiche",
+                "createLabel": "Genera una nuova Notifica",
+                "createOrEditLabel": "Genera o modifica una Notifica"
+            },
+            "created": "&Egrave; stato generato una nuova Notifica con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornata Notifica identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminata Notifica con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Notifica {{ id }}?"
+            },
+            "detail": {
+                "title": "Notifiche"
+            },
+            "canaleNotifica": "Canale Notifica",
+            "tipoNotifica": "Tipo Notifica",
+            "categoriaNotifica": "Categoria Notifica",
+            "oggettoNotifica": "Oggetto Notifica",
+            "testoNotifica": "Testo Notifica",
+            "numeroDestinatari": "Numero Destinatari",
+            "destinatariNotifica": "Destinatari Notifica",
+            "esitoNotifica": "Esito Notifica",
+            "dettagliEsito": "Dettagli Esito"
+        }
+    }
+}

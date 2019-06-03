@@ -1,0 +1,34 @@
+{
+    "error": {
+        "title": "Pagina di errore!",
+        "http": {
+            "400": "Bad request.",
+            "403": "Non si dispongono i privilegi sufficienti per accedere a qusta pagina.",
+            "405": "The HTTP verb you used is not supported for this URL.",
+            "500": "Internal server error."
+        },
+        "codiceFiscaleAlreadyExists": "Il Cliente e' gia' censito",
+        "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
+        "validation": "Validation error on the server.",
+        "deleteCliente": {
+            "incaricoAttivoExists": "Impossibile cancellare il Cliente in quanto e' legato ad un incarico non in stato di BOZZA."
+        },
+        "editCliente": {
+            "incaricoAttivoExists": "Impossibile modificare il Cliente in quanto e' legato ad un incarico non in stato di BOZZA."
+        },
+        "deleteImmobile": {
+            "incaricoAttivoExists": "Impossibile cancellare l'Immobile in quanto e' legato ad un incarico non in stato di BOZZA."
+        },
+        "editImmobile": {
+            "incaricoAttivoExists": "Impossibile modificare l'Immobile in quanto e' legato ad un incarico non in stato di BOZZA."
+        },
+        "editIncarico": {
+            "incaricoAttivoExists": "Impossibile modificare l'Incarico in quanto non e' in stato di BOZZA.",
+            "cambioStatoNonValido": "Passaggio di stato {{statoIniziale}} -> {{statoFinale}} non valido per Incarico Id {{idIncarico}} e per profilo utente {{utente}}"
+        },
+        "deleteIncarico": {
+            "incaricoAttivoExists": "Impossibile cancellare l'Incarico in quanto non e' in stato di BOZZA."
+        }
+    }
+
+}

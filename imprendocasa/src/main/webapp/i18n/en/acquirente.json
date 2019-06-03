@@ -1,0 +1,41 @@
+{
+    "imprendocasaApp": {
+        "acquirente": {
+            "abilitato": "Abilitato",
+            "alertCompleanno": "Alert Compleanno",
+            "cap": "Cap",
+            "citta": "Citta",
+            "codiceAntiriciclaggio": "Antiriciclaggio code",
+            "codiceFiscale": "Codice Fiscale",
+            "cognome": "Cognome",
+            "created": "A new Acquirente is created with identifier {{ param }}",
+            "dataNascita": "Data Nascita",
+            "delete": {
+                "question": "Are you sure you want to delete Acquirente {{ id }}?"
+            },
+            "deleted": "A Acquirente is deleted with identifier {{ param }}",
+            "detail": {
+                "title": "Acquirente"
+            },
+            "email": "Email",
+            "home": {
+                "createLabel": "New Acquirente",
+                "createOrEditLabel": "Create or edit a Acquirente",
+                "title": "Acquirenti"
+            },
+            "importoProvvigioni": "Provvigioni import",
+            "incarico": "Incarico",
+            "indirizzo": "Indirizzo",
+            "meseNascita": "Mese Nascita",
+            "nome": "Nome",
+            "note": "Note",
+            "numeroContratti": "Contracts number",
+            "provincia": "Provincia",
+            "punteggio": "Points",
+            "regione": "Regione",
+            "telefonoCellulare": "Phone number",
+            "telefonoFisso": "Landline phone number",
+            "updated": "&Egrave; stato aggiornato Acquirente identificato da {{ param }}"
+        }
+    }
+}

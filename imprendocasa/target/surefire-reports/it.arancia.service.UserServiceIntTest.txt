@@ -1,0 +1,184 @@
+-------------------------------------------------------------------------------
+Test set: it.arancia.service.UserServiceIntTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 86.891 s <<< FAILURE! - in it.arancia.service.UserServiceIntTest
+assertThatOnlyActivatedUserCanRequestPasswordReset(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+assertThatUserMustExistToResetPassword(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+assertThatAnonymousUserIsNotGet(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+assertThatResetKeyMustBeValid(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+testRemoveNotActivatedUsers(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+assertThatUserCanResetPassword(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+testFindNotActivatedUsersByCreationDateBefore(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+testRemoveOldPersistentTokens(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+
+assertThatResetKeyMustNotBeOlderThan24Hours(it.arancia.service.UserServiceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'liquibase' defined in class path resource [it/arancia/config/LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.MigrationFailedException: Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.MigrationFailedException: 
+Migration failed for change set config/liquibase/changelog/20190112094624_added_entity_Tag.xml::20181108170542-audit-98::jh-arancia:
+     Reason: liquibase.exception.DatabaseException: Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: liquibase.exception.DatabaseException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197] [Failed SQL: INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin')]
+Caused by: org.h2.jdbc.JdbcSQLException: 
+Data conversion error converting "'' (TAG: ABILITATO BOOLEAN)"; SQL statement:
+INSERT INTO PUBLIC.tag (id, codice, denominazione, abilitato, created_by) VALUES ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') -- ('1', 'COMMITTENTE', 'COMMITTENTE', '', 'admin') [22018-197]
+Caused by: org.h2.message.DbException: Data conversion error converting  [22018-197]
+Caused by: org.h2.jdbc.JdbcSQLException: Data conversion error converting  [22018-197]
+Caused by: java.lang.NumberFormatException
+

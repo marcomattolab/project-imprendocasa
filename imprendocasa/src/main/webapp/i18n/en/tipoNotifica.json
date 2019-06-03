@@ -1,0 +1,9 @@
+{
+    "imprendocasaApp": {
+        "TipoNotifica": {
+            "null": "",
+            "MANUALE": "MANUALE",
+            "AUTOMATICO": "AUTOMATICO"
+        }
+    }
+}

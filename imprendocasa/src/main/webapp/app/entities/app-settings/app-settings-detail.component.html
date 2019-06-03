@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="appSettings">
+            <h2><span jhiTranslate="imprendocasaApp.appSettings.detail.title">App Settings</span> {{appSettings.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="imprendocasaApp.appSettings.categoria">Categoria</span></dt>
+                <dd>
+                    <span>{{appSettings.categoria}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.appSettings.chiave">Chiave</span></dt>
+                <dd>
+                    <span>{{appSettings.chiave}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.appSettings.valore">Valore</span></dt>
+                <dd>
+                    <span>{{appSettings.valore}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.appSettings.abilitato">Abilitato</span></dt>
+                <dd>
+                    <span>{{appSettings.abilitato}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/app-settings', appSettings.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

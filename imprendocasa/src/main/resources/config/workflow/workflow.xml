@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graph>
+  <node key="Bozza" color="lightblue" />
+  <node key="Attivo" color="orange" />
+  <node key="Concluso" color="lightgreen" />
+  <node key="Interrotto" color="pink" />
+  <node key="Scaduto" color="yellow" />
+  <link from="Bozza" to="Attivo" />
+  <link from="Attivo" to="Concluso" />
+  <link from="Attivo" to="Interrotto" />
+  <link from="Attivo" to="Scaduto" />
+  <link from="Interrotto" to="Attivo" />
+  <link from="Scaduto" to="Attivo" />
+</graph>

@@ -1,0 +1,24 @@
+{
+    "imprendocasaApp": {
+        "geolocalizzazione": {
+            "home": {
+                "title": "Geolocalizzazioni",
+                "createLabel": "Genera un nuovo Geolocalizzazione",
+                "createOrEditLabel": "Genera o modifica un Geolocalizzazione"
+            },
+            "created": "È stato generato un nuovo Geolocalizzazione con identificatore {{ param }}",
+            "updated": "È stato aggiornato Geolocalizzazione identificato da {{ param }}",
+            "deleted": "È stato eliminato Geolocalizzazione con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Geolocalizzazione {{ id }}?"
+            },
+            "detail": {
+                "title": "Geolocalizzazione"
+            },
+            "immobile": "Immobile",
+            "latitudine": "Latitudine",
+            "longitudine": "Longitudine",
+            "posizione": "Posizione"
+        }
+    }
+}

@@ -1,0 +1,370 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="imprendocasaApp.incarico.home.title">Incaricos</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <ngb-accordion #acc="ngbAccordion" activeIds="filtriPanel">
+        <ngb-panel id="filtriPanel">
+            <ng-template ngbPanelTitle>
+                <span jhiTranslate="global.search.filtersLabel">Filtri</span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <form (ngSubmit)="cerca()">
+                    <div class="row" [formGroup]="formIncarico">
+                        <div class="col-md-4">
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.riferimento">Riferimento</label>
+                                <input formControlName="riferimento" id="riferimento" type="text" class="form-control"/>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.committente">committente</label>
+                                <select class="form-control" id="field_committente"
+                                        formControlName="committenteId" name="committente">
+                                    <option *ngFor="let committente of committenti" ngDefaultControl
+                                            [value]="committente.id">
+                                        {{committente.nome}} {{committente.cognome}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.proponenti">Proponenti</label>
+                                <select class="form-control" id="field_proponente"
+                                        formControlName="proponenteId" name="committente">
+                                    <option *ngFor="let proponente of proponenti" ngDefaultControl
+                                            [value]="proponente.id">
+                                        {{proponente.nome}} {{proponente.cognome}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.acquirenteLocatario">acqloc</label>
+                                <select class="form-control" id="field_acquirenteLocatario"
+                                        formControlName="acquirenteLocatarioId" name="acquirenteLocatarioId"
+                                >
+                                    <option *ngFor="let acqLoc of acquirenti_locatari" ngDefaultControl
+                                            [value]="acqLoc.id">
+                                        {{acqLoc.nome}} {{acqLoc.cognome}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.partner">partners</label>
+                                <select class="form-control" id="field_partner" formControlName="partnerId"
+                                        name="partner"
+                                >
+                                    <option *ngFor="let partner of partners" ngDefaultControl [value]="partner.id">
+                                        {{partner.nome}} {{partner.cognome}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.agente">agente</label>
+                                <select class="form-control" id="field_agente" formControlName="agente" name="agente">
+                                    <option *ngFor="let user of users" ngDefaultControl [value]="user.login">
+                                        {{user.firstName}} {{user.lastName}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.tipo">Tipo</label>
+                                <select class="form-control" id="field_tipo" name="tipineg" formControlName="tipo">
+                                    <option></option>
+                                    <option *ngFor="let tipo of tipiNegoziazione"
+                                            ngDefaultControl>{{tipo}}</option>
+                                </select>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.stato">Stato</label>
+                                <select class="form-control" id="field_stato" name="stato" formControlName="stato">
+                                    <option></option>
+                                    <option *ngFor="let stato of statiIncarico"
+                                            ngDefaultControl>{{stato}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label class="form-control-label" jhiTranslate="imprendocasaApp.incarico.categoria"
+                                       for="field_categoria">categoria</label>
+                                <select formControlName="categoriaIncarico" class="form-control"
+                                        name="categoriaIncarico" id="field_categoria">
+                                    <option value="COMMERCIALE">{{'imprendocasaApp.incarico.categoriaComm' | translate}}</option>
+                                    <option value="RESIDENZIALE">{{'imprendocasaApp.incarico.categoriaRes' | translate}}</option>
+                                </select>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.dataScadenzaRange">data</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="dataScadenzaD" type="date" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="dataScadenzaA" type="date" class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.dataInizioRange">data</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="dataInizioD" type="date" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="dataInizioA" type="date" class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                <label jhiTranslate="imprendocasaApp.incarico.prezzoAcquisto">Prezzo Acquisto</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="prezzoAcquistoD" type="number"
+                                                   class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="prezzoAcquistoA" type="number"
+                                                   class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label jhiTranslate="imprendocasaApp.incarico.prezzoRichiesta">Prezzo Richiesta</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="prezzoRichiestaD" type="number"
+                                                   class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="prezzoRichiestaA" type="number"
+                                                   class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  <label jhiTranslate="imprendocasaApp.cliente.provvigione">Provvigione</label>
+                                  <div class="row">
+                                      <div class="col-md-6 col-12">
+                                          <div class="input-group form-group">
+                                              <input formControlName="importoProvvigioneD" type="number" class="form-control"/>
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6 col-12">
+                                          <div class="input-group form-group">
+                                              <input formControlName="importoProvvigioneA" type="number" class="form-control"/>
+                                          </div>
+                                      </div>
+                                  </div> -->
+                            </div>
+                            <!-- <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                 <label jhiTranslate="imprendocasaApp.incarico.cap">Dati Catastali</label>
+                                 <input formControlName="datiCatastali" id="datiCastali" type="text" class="form-control"/>
+                             </div> -->
+                        </div>
+                    </div>
+                    <div class="form-group float-right">
+                        <button class="btn btn-link" type="button" (click)="resetFiltri()">
+                            <span jhiTranslate="global.search.clearfiltersLabel">Pulisci Filtri</span>
+                        </button>
+                        <button class="btn btn-primary" type="submit">
+                            <fa-icon [icon]="'search'"></fa-icon>
+                            <span jhiTranslate="global.search.buttonLabel">Cerca</span>
+                        </button>
+                        <button class="btn btn-secondary jh-create-entity create-immobile"
+                                [routerLink]="['/incarico/new']" type="button">
+                            <fa-icon [icon]="'plus'"></fa-icon>
+                            <span jhiTranslate="imprendocasaApp.incarico.home.createLabel">Create new Incarico</span>
+                        </button>
+                    </div>
+                </form>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+    <br/>
+    <div class="table-responsive" *ngIf="incaricos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)"
+                class="text-center-exclude-first">
+                <th class="no-wrap" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('id')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="riferimento"><span jhiTranslate="imprendocasaApp.incarico.riferimento">Riferimento</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('riferimento')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="partner"><span
+                        jhiTranslate="imprendocasaApp.incarico.partner">Partners</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('partner')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="categoria"><span jhiTranslate="imprendocasaApp.incarico.categoria">Categoria</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('categoria')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="tipo"><span jhiTranslate="imprendocasaApp.incarico.tipo">Tipo</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('tipo')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="stato"><span jhiTranslate="imprendocasaApp.incarico.stato">Stato</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('stato')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="dataScadenza"><span jhiTranslate="imprendocasaApp.incarico.dataScadenza">Data Scadenza</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('dataScadenza')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="dataInizio"><span jhiTranslate="imprendocasaApp.incarico.dataInizio">Data Inizio</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('dataScadenza')"></span>
+                </th>
+                <!-- <th class="class="no-wrap" jhiSortBy="agenteDiContatto"><span jhiTranslate="imprendocasaApp.incarico.agenteDiContatto">Agente Di Contatto</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('agenteDiContatto')"></span>
+                 </th> -->
+                <!--<th class="class="no-wrap" jhiSortBy="dataContatto"><span jhiTranslate="imprendocasaApp.incarico.dataContatto">Data Contatto</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('dataContatto')"></span>
+                </th>-->
+                <!-- <th class="class="no-wrap" jhiSortBy="privacy"><span jhiTranslate="imprendocasaApp.incarico.privacy">Privacy</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('privacy')"></span>
+                 </th>
+                 <th class="class="no-wrap" jhiSortBy="antiriciclaggio"><span jhiTranslate="imprendocasaApp.incarico.antiriciclaggio">Antiriciclaggio</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('antiriciclaggio')"></span>
+                 </th> -->
+                <th class="no-wrap" jhiSortBy="prezzoRichiesta"><span
+                        jhiTranslate="imprendocasaApp.incarico.prezzoRichiesta">Prezzo Richiesta</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('prezzoRichiesta')"></span>
+                </th>
+                <!-- <th class="class="no-wrap" jhiSortBy="prezzoMinimo"><span jhiTranslate="imprendocasaApp.incarico.prezzoMinimo">Prezzo Minimo</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('prezzoMinimo')"></span>
+                 </th>-->
+                <th class="no-wrap" jhiSortBy="prezzoAcquisto"><span
+                        jhiTranslate="imprendocasaApp.incarico.prezzoAcquisto">Prezzo Acquisto</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('prezzoAcquisto')"></span>
+                </th>
+                <!-- <th class="class="no-wrap" jhiSortBy="importoProvvigione"><span jhiTranslate="imprendocasaApp.incarico.importoProvvigione">Importo Provvigione</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('importoProvvigione')"></span>
+                 </th> -->
+                <!--<th class="class="no-wrap" jhiSortBy="noteTrattativa"><span jhiTranslate="imprendocasaApp.incarico.noteTrattativa">Note Trattativa</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('noteTrattativa')"></span>
+                </th>
+                <th class="class="no-wrap" jhiSortBy="datiFiscali"><span jhiTranslate="imprendocasaApp.incarico.datiFiscali">Dati Fiscali</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('datiFiscali')"></span>
+                </th>
+                <th class="class="no-wrap" jhiSortBy="alertFiscali"><span jhiTranslate="imprendocasaApp.incarico.alertFiscali">Alert Fiscali</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('alertFiscali')"></span>
+                 </th>
+                 <th class="class="no-wrap" jhiSortBy="alertCortesia"><span jhiTranslate="imprendocasaApp.incarico.alertCortesia">Alert Cortesia</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('alertCortesia')"></span>
+                 </th>
+                 <th class="class="no-wrap" jhiSortBy="oscuraIncarico"><span jhiTranslate="imprendocasaApp.incarico.oscuraIncarico">Oscura Incarico</span>
+                     <span class="fa" [ngClass]="getOrderByIcon('oscuraIncarico')"></span>
+                 </th>
+                <th class="class="no-wrap" jhiSortBy="flagLocato"><span jhiTranslate="imprendocasaApp.incarico.flagLocato">Flag Locato</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('flagLocato')"></span>
+                </th>-->
+                <!--
+                     <th jhiSortBy="nomeConduttore"><span jhiTranslate="imprendocasaApp.incarico.nomeConduttore">Nome Conduttore</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                 <th jhiSortBy="cognomeConduttore"><span jhiTranslate="imprendocasaApp.incarico.cognomeConduttore">Cognome Conduttore</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                 <th jhiSortBy="dataInizioLocazione"><span jhiTranslate="imprendocasaApp.incarico.dataInizioLocazione">Data Inizio Locazione</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                 <th jhiSortBy="dataFineLocazione"><span jhiTranslate="imprendocasaApp.incarico.dataFineLocazione">Data Fine Locazione</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                 <th jhiSortBy="noteLocazione"><span jhiTranslate="imprendocasaApp.incarico.noteLocazione">Note Locazione</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                 -->
+                <th class="no-wrap" jhiSortBy="immobileCodice"><span jhiTranslate="imprendocasaApp.incarico.immobile">Immobile</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('immobileCodice')"></span>
+                </th>
+                <th class="no-wrap" jhiSortBy="agente">
+                    <span jhiTranslate="imprendocasaApp.incarico.agente">Agente</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('agente')"></span>
+                </th>
+                <!--<th>
+                    <span>Completato al</span>
+                    <fa-icon [icon]="'sort'"></fa-icon>
+                </th> -->
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center-exclude-first no-wrap" *ngFor="let incarico of incaricos ;trackBy: trackId">
+                <td><a [routerLink]="['/incarico', incarico.id, 'view' ]">{{incarico.id}}</a></td>
+                <td>{{incarico.riferimento}}</td>
+                <td>
+                    <div *ngFor="let partner of incarico.partners">
+                        <span class="badge badge-info">{{ partner.cognome}}</span>
+                    </div>
+                </td>
+                <td>{{incarico.categoriaIncarico}}</td>
+                <td jhiTranslate="{{'imprendocasaApp.TipoNegoziazione.' + incarico.tipo}}">{{incarico.tipo}}</td>
+                <td jhiTranslate="{{'imprendocasaApp.StatoIncarico.' + incarico.stato}}">{{incarico.stato}}</td>
+                <td class="no-wrap">{{incarico.dataScadenza | date:'medium'}}</td>
+                <td class="no-wrap">{{incarico.dataInizioLocazione | date:'medium'}}</td>
+                <!-- <td>{{incarico.agenteDiContatto}}</td>
+                 <td class="no-wrap">{{incarico.dataContatto | date:'medium'}}</td>
+                 <td>{{incarico.privacy}}</td>
+                 <td>{{incarico.antiriciclaggio}}</td> -->
+                <td>{{incarico.prezzoRichiesta}}</td>
+                <!--<td>{{incarico.prezzoMinimo}}</td>-->
+                <td>{{incarico.prezzoAcquisto}}</td>
+                <!-- <td>{{incarico.provvigione}}</td>-->
+                <!--<td>{{incarico.noteTrattativa}}</td>
+                <td>{{incarico.datiFiscali}}</td>
+                <td jhiTranslate="{{'imprendocasaApp.BooleanStatus.' + incarico.alertFiscali}}">{{incarico.alertFiscali}}</td>
+                <td jhiTranslate="{{'imprendocasaApp.BooleanStatus.' + incarico.alertCortesia}}">{{incarico.alertCortesia}}</td>
+                <td>{{incarico.oscuraIncarico}}</td>
+
+                <td>{{incarico.flagLocato}}</td>-->
+                <!-- 
+				<td>{{incarico.nomeConduttore}}</td>
+                <td>{{incarico.cognomeConduttore}}</td>
+                <td>{{incarico.dataInizioLocazione | date:'mediumDate'}}</td>
+                <td>{{incarico.dataFineLocazione | date:'mediumDate'}}</td>
+                <td>{{incarico.noteLocazione}}</td>
+                -->
+
+                <td>
+                    <div *ngIf="incarico.immobileId">
+                        <a [routerLink]="['../immobile', incarico.immobileId , 'view' ]">{{incarico.immobileCodice}}</a>
+                    </div>
+                </td>
+                <td>{{incarico.agente}}</td>
+                <!-- <td>{{retrieveCompletamento(incarico.id)}}%</td> -->
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit" [routerLink]="['/incarico', incarico.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button *ngIf="incarico.editAvaiable" type="submit"
+                                [routerLink]="['/incarico', incarico.id, 'edit']" class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button *ngIf="incarico.deleteAvaiable" type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'incarico/'+ incarico.id + '/delete'} }]"
+                                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="incaricos && incaricos.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-professione-heading" jhiTranslate="imprendocasaApp.professione.home.createOrEditLabel">Create or edit a Professione</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!professione.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="professione.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.professione.codice" for="field_codice">Codice</label>
+                    <input type="text" class="form-control" name="codice" id="field_codice"
+                        [(ngModel)]="professione.codice" required/>
+                    <div [hidden]="!(editForm.controls.codice?.dirty && editForm.controls.codice?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codice?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.professione.denominazione" for="field_denominazione">Denominazione</label>
+                    <input type="text" class="form-control" name="denominazione" id="field_denominazione"
+                        [(ngModel)]="professione.denominazione" required/>
+                    <div [hidden]="!(editForm.controls.denominazione?.dirty && editForm.controls.denominazione?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.denominazione?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.professione.abilitato" for="field_abilitato">Abilitato</label>
+                    <input type="checkbox" class="form-control" name="abilitato" id="field_abilitato"
+                        [(ngModel)]="professione.abilitato" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

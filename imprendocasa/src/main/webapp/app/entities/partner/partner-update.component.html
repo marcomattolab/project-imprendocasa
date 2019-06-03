@@ -1,0 +1,241 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-partner-heading" jhiTranslate="imprendocasaApp.partner.home.createOrEditLabel">Create or edit a
+                Partner</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <!--    
+                <div class="form-group" [hidden]="!partner.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="mdl-textfield__input" id="id" name="id"
+                        [(ngModel)]="partner.id" readonly /> 
+                </div>
+                -->
+
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.nome"
+                                   for="field_nome">Nome</label>
+                            <input type="text" class="mdl-textfield__input" name="nome" id="field_nome"
+                                   [(ngModel)]="partner.nome" required/>
+                            <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                                <small class="form-text text-danger"
+                                       [hidden]="!editForm.controls.nome?.errors?.required"
+                                       jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.cognome"
+                                   for="field_cognome">Cognome</label>
+                            <input type="text" class="mdl-textfield__input" name="cognome" id="field_cognome"
+                                   [(ngModel)]="partner.cognome" required/>
+                            <div [hidden]="!(editForm.controls.cognome?.dirty && editForm.controls.cognome?.invalid)">
+                                <small class="form-text text-danger"
+                                       [hidden]="!editForm.controls.cognome?.errors?.required"
+                                       jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                </small>
+                            </div>
+                        </div>
+
+                        <!--  Fiscal Code  -->
+                        <!-- 
+		 				<div class="form-group">
+		                    <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.codiceFiscale" for="field_codiceFiscale">Codice Fiscale</label>
+		                    <input type="text" class="form-control" name="codiceFiscale" id="field_codiceFiscale"
+		                        [(ngModel)]="partner.codiceFiscale" />
+		                </div>
+		                -->
+
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.professione"
+                                   for="field_professione">Professione</label>
+                            <!--  MMA - Guida per creare select dinamiche -->
+                            <select class="form-control" id="field_professione" name="professione"
+                                    [(ngModel)]="partner.professioneId">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="professioneOption.id"
+                                        *ngFor="let professioneOption of professiones">{{professioneOption.denominazione}}</option>
+                            </select>
+                            <!--
+                            <select class="mdl-textfield__input" name="professione" [(ngModel)]="partner.professione" id="field_professione" required>
+                                <option value="NOTAIO">{{'imprendocasaApp.Professioni.NOTAIO' | translate}}</option>
+                                <option value="AVVOCATO">{{'imprendocasaApp.Professioni.AVVOCATO' | translate}}</option>
+                                <option value="ARCHITETTO">{{'imprendocasaApp.Professioni.ARCHITETTO' | translate}}</option>
+                                <option value="INTERMEDIARIO">{{'imprendocasaApp.Professioni.INTERMEDIARIO' | translate}}</option>
+                                <option value="AMMINISTRATORE">{{'imprendocasaApp.Professioni.AMMINISTRATORE' | translate}}</option>
+                                <option value="BANCARIO">{{'imprendocasaApp.Professioni.BANCARIO' | translate}}</option>
+                                <option value="PORTIERE">{{'imprendocasaApp.Professioni.PORTIERE' | translate}}</option>
+                                <option value="ESPERTO">{{'imprendocasaApp.Professioni.ESPERTO' | translate}}</option>
+                                <option value="INGEGNERE">{{'imprendocasaApp.Professioni.INGEGNERE' | translate}}</option>
+                                <option value="FREELANCE">{{'imprendocasaApp.Professioni.FREELANCE' | translate}}</option>
+                            </select>
+                            -->
+                            <!-- 
+                             <div class="form-group">
+			                    <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.professione" for="field_professione">Professione</label>
+			                    <select class="form-control" id="field_professione" name="professione" [(ngModel)]="partner.professioneId" >
+			                        <option [ngValue]="null"></option>
+			                        <option [ngValue]="professioneOption.id" *ngFor="let professioneOption of professiones; trackBy: trackProfessioneById">{{professioneOption.denominazione}}</option>
+			                    </select>
+			                </div>
+                             -->
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.telefonoFisso"
+                                   for="field_telefonoFisso">Telefono fisso</label>
+                            <input type="text" class="mdl-textfield__input" name="telefonoFisso"
+                                   id="field_telefonoFisso" [(ngModel)]="partner.telefonoFisso" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.telefonoCellulare"
+                                   for="field_telefonoCellulare">Cellulare</label>
+                            <input type="text" class="mdl-textfield__input" name="telefonoCellulare"
+                                   id="field_telefonoCellulare" [(ngModel)]="partner.telefonoCellulare" required/>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.email"
+                                   for="field_email">Email</label>
+                            <input type="text" class="mdl-textfield__input" name="email" id="field_email"
+                                   [(ngModel)]="partner.email" pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                            />
+                            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                                <small class="form-text text-danger"
+                                       [hidden]="!editForm.controls.email?.errors?.pattern"
+                                       jhiTranslate="entity.validation.pattern"
+                                       translateValues="{ pattern: 'Email' }">
+                                    This field should follow pattern for "Email".
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.tipoIndirizzo"
+                                   for="field_tipoIndirizzo">Tipo Indirizzo</label>
+                            <select class="mdl-textfield__input" name="tipoIndirizzo"
+                                    [(ngModel)]="partner.tipoIndirizzo" id="field_tipoIndirizzo">
+                                <option value="CASA">{{'imprendocasaApp.TipoIndirizzo.CASA' | translate}}</option>
+                                <option value="LAVORO">{{'imprendocasaApp.TipoIndirizzo.LAVORO' | translate}}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.indirizzo"
+                                   for="field_indirizzo">Indirizzo</label>
+                            <input type="text" class="mdl-textfield__input" name="indirizzo" id="field_indirizzo"
+                                   [(ngModel)]="partner.indirizzo" #search [formControl]="searchControl"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.cap"
+                                   for="field_cap">Cap</label>
+                            <input type="text" class="mdl-textfield__input" name="cap" id="field_cap"
+                                   [(ngModel)]="partner.cap" maxlength="20"/>
+                            <div [hidden]="!(editForm.controls.cap?.dirty && editForm.controls.cap?.invalid)">
+                                <small class="form-text text-danger"
+                                       [hidden]="!editForm.controls.cap?.errors?.maxlength"
+                                       jhiTranslate="entity.validation.maxlength"
+                                       translateValues="{ max: 20 }">
+                                    This field cannot be longer than 20 characters.
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.regione"
+                                   for="field_regione">Regione</label>
+                            <input type="text" class="mdl-textfield__input" name="regione" id="field_regione"
+                                   [(ngModel)]="partner.regione"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.provincia"
+                                   for="field_provincia">Provincia</label>
+                            <input type="text" class="mdl-textfield__input" name="provincia" id="field_provincia"
+                                   [(ngModel)]="partner.provincia"/>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.citta"
+                                   for="field_citta">Citta</label>
+                            <input type="text" class="mdl-textfield__input" name="citta" id="field_citta"
+                                   [(ngModel)]="partner.citta"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.note"
+                                   for="field_note">Note</label>
+                            <textarea class="mdl-textfield__input" name="note" id="field_note"
+                                      [(ngModel)]="partner.note"></textarea>
+                        </div>
+
+                        <!--<div class="col-sm-2" style="text-align: center;">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.partner.abilitato"
+                                   for="field_abilitato">Abilitato</label>
+                            <input type="checkbox" class="mdl-textfield__input" name="abilitato" id="field_abilitato"
+                                   [(ngModel)]="partner.abilitato"
+                            />
+                        </div> -->
+                    </div>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo" *ngIf="checked">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 jhiTranslate="imprendocasaApp.partner.alertEsistenza" class="form-text text-danger">
+                                è già presente nel sistema. Se desidera procedere, premere nuovamente su Salva.
+                            </h3>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;
+                    <span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;
+                    <span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,14 @@
+{
+    "imprendocasaApp": {
+        "TipoNegoziazione": {
+            "null": "",
+            "COMPRAVENDITA": "Compravendita",
+            "LOCAZIONE": "Locazione",
+            "PRATICA_TECNICA": "Pratica tecnica",
+            "PRATICA_LEGALE": "Pratica legale",
+            "MUTUO": "Mutuo",
+            "SERVIZI_ACCESSORI": "Servizi accessori",
+            "ALTRO": "Altro"
+        }
+    }
+}

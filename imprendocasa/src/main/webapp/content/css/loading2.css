@@ -1,0 +1,12 @@
+body {
+   background-color: #252a2b
+}
+
+.centered{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}			

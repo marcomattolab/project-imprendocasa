@@ -1,0 +1,13 @@
+.cke-template {
+    &.ckeditor-valid {
+        border-left: 5px solid green;
+    }
+
+    &.ckeditor-invalid {
+        border-left: 5px solid red;
+    }
+
+    ckeditor {
+        border: none;
+    }
+}

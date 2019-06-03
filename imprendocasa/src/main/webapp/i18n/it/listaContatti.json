@@ -1,0 +1,34 @@
+{
+  "imprendocasaApp": {
+    "EsitoChiamata": {
+      "null": "",
+      "ESEGUITA": "Eseguita",
+      "NON_RAGGIUNGIBILE": "Non raggiungibile",
+      "OCCUPATO": "Occupato",
+      "NON_INTERESSATO": "Non interessato"
+    },
+    "listaContatti": {
+      "cliente": "Cliente",
+      "committente": "Committente",
+      "created": "&Egrave; stato generato un nuovo contatti con identificatore {{ param }}",
+      "dateTime": "Data contatto",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare il contatto {{ id }}?"
+      },
+      "deleted": "&Egrave; stato eliminato il contatto con identificatore {{ param }}",
+      "detail": {
+        "title": "Dettaglio contatto"
+      },
+      "esito": "Esito",
+      "home": {
+        "createLabel": "Nuovo contatto",
+        "createOrEditLabel": "Genera o modifica un contatto",
+        "title": "Lista contatti"
+      },
+      "incarico": "Incarico",
+      "motivazione": "Motivazione",
+      "note": "Note",
+      "updated": "&Egrave; stato aggiornato il contatto identificato da {{ param }}"
+    }
+  }
+}

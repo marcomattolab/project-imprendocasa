@@ -1,0 +1,12 @@
+{
+    "imprendocasaApp": {
+        "StatoIncarico": {
+            "null": "",
+            "BOZZA": "BOZZA",
+            "ATTIVO": "ATTIVO",
+            "CONCLUSO": "CONCLUSO",
+            "INTERROTTO": "INTERROTTO",
+            "SCADUTO": "SCADUTO"
+        }
+    }
+}

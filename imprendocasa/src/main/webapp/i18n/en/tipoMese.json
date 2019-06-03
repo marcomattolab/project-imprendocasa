@@ -1,0 +1,19 @@
+{
+    "imprendocasaApp": {
+        "TipoMese": {
+            "null": "",
+            "GENNAIO": "GENNAIO",
+            "FEBBRAIO": "FEBBRAIO",
+            "MARZO": "MARZO",
+            "APRILE": "APRILE",
+            "MAGGIO": "MAGGIO",
+            "GIUGNO": "GIUGNO",
+            "LUGLIO": "LUGLIO",
+            "AGOSTO": "AGOSTO",
+            "SETTEMBRE": "SETTEMBRE",
+            "OTTOBRE": "OTTOBRE",
+            "NOVEMBRE": "NOVEMBRE",
+            "DICEMBRE": "DICEMBRE"
+        }
+    }
+}

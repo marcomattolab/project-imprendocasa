@@ -1,0 +1,39 @@
+.item-selection {
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.dati-immobile {
+  display: flex;
+  flex-wrap: row;
+  overflow: hidden;
+  border-radius: .5em;
+  box-shadow: -1px 10px 13px -6px rgba(0, 0, 0, 0.36);
+  flex: 1;
+  border: 1px solid #DDDDDD;
+
+  .immobile-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 40px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-left: 25px;
+    padding-right: 25px;
+
+    .item-key {
+      flex: 2;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .item-value {
+      flex: 3;
+      text-align: right;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+    "imprendocasaApp": {
+        "incarico": {
+            "acquirenteLocatario": "Acquirenti/Locatari",
+            "acquirenteLocatarioNuovo": "New Acquirente/Locatario",
+            "agente": "Agent",
+            "agenteDiContatto": "Contact Agent",
+            "alertCortesia": "Alert Cortesia",
+            "alertFiscali": "Alert Fiscali",
+            "antiriciclaggio": "Antiriciclaggio committenti",
+            "antiriciclaggioAcquirenti": "Antiriciclaggio acquirenti",
+            "cambiaStato": "Change status",
+            "canoneCorrisposto": "Canone corrisposto",
+            "categoria": "Category",
+            "categoriaComm": "COMMERCIAL",
+            "COMMERCIALE": "COMMERCIAL",
+            "categoriaRes": "RESIDENTIAL",
+            "RESIDENZIALE": "RESIDENTIAL",
+            "cognomeConduttore": "Cognome Conduttore",
+            "committente": "Committenti",
+            "committenteNuovo": "New customer",
+            "created": "A new Transaction is created with identifier {{ param }}",
+            "dataContatto": "Data Contatto",
+            "dataFineLocazione": "Data Fine Locazione",
+            "dataInizioLocazione": "Data Inizio Locazione",
+            "dataScadenza": "Expiration Date",
+            "dataScadenzaRange": "Expiration Date Range( From / To)",
+            "dataInizio": "Start Date",
+            "dataInizioRange": " Expiration Date Range( From / To)",
+            "datiFiscali": "Fiscal Data",
+            "delete": {
+                "question": "Are you sure you want to delete Transaction {{ id }}?"
+            },
+            "deleted": "A Transaction is deleted with identifier {{ param }}",
+            "detail": {
+                "title": "Transaction"
+            },
+            "flagLocato": "Flag Locato",
+            "home": {
+                "createLabel": "New Transaction",
+                "createOrEditLabel": "Create or edit a Transaction",
+                "editLabel": "Edit Transaction",
+                "title": "Transactions"
+            },
+            "immobile": "Immobile",
+            "importoProvvigione": "Importo Provvigione comittenti",
+            "importoProvvigioneAcquirenti": "Importo Provvigione acquirenti",
+            "listaContatti": "Lista Contatti",
+            "nomeConduttore": "Nome Conduttore",
+            "noteLocazione": "Note Locazione",
+            "noteTrattativa": "Note Trattativa",
+            "oscuraIncarico": "Oscura Incarico",
+            "partner": "Partner",
+            "prezzoAcquisto": "Prezzo Acquisto",
+            "prezzoAcquistoRange": "Prezzo Acquisto Range( Da / A)",
+            "prezzoRichiestaRange": "Prezzo Richiesta Range( Da / A)",
+            "prezzoMinimo": "Prezzo Minimo",
+            "prezzoRichiesta": "Prezzo Richiesta",
+            "privacy": "Privacy committenti",
+            "privacyAcquirenti": "Privacy acquirenti",
+            "proponenteNuovo": "New proponent",
+            "proponenti": "Proponenti",
+            "riferimento": "Riferimento",
+            "segnalatori": "Segnalatori",
+            "segnalatoreNuovo": "New segnalatore",
+            "stato": "Status",
+            "telefonoConduttore": "Telefono conduttore",
+            "tipo": "Type",
+            "updated": "A Transaction is updated with identifier {{ param }}"
+        }
+    }
+}

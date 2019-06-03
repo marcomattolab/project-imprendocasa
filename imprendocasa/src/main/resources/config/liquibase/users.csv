@@ -1,0 +1,7 @@
+id;login;password_hash;first_name;last_name;email;image_url;activated;lang_key;created_by;last_modified_by
+1;system;$2a$10$mE.qmcV0mFU5NcKh73TZx.z4ueI/.bDWbj0T1BYyqP481kGGarKLG;System;System;system@localhost;;true;it;system;system
+2;anonymoususer;$2a$10$j8S5d7Sr7.8VTOYNviDPOeWX8KcYILUVJBsYV83Y5NtECayypx9lO;Anonymous;User;anonymous@localhost;;true;it;system;system
+3;admin;$2a$10$19lruzru79O0GXjtUXbEhuXs0dBUShwIOu9CCORlS/LpHigKp5fcq;Administrator;Administrator;admin@localhost;;true;it;system;system
+4;user;$2a$10$19lruzru79O0GXjtUXbEhuXs0dBUShwIOu9CCORlS/LpHigKp5fcq;Agent;Agent;user@localhost;;true;it;system;system
+5;operator;$2a$10$19lruzru79O0GXjtUXbEhuXs0dBUShwIOu9CCORlS/LpHigKp5fcq;Operator;Operator;operator@localhost;;true;it;system;system
+6;super;$2a$10$19lruzru79O0GXjtUXbEhuXs0dBUShwIOu9CCORlS/LpHigKp5fcq;Super;Super;superadmin@localhost;;true;it;system;system

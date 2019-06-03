@@ -1,0 +1,70 @@
+{
+    "imprendocasaApp": {
+        "incarico": {
+            "acquirenteLocatario": "Acquirente/Locatario",
+            "acquirenteLocatarioNuovo": "Nuovo Acquirente/Locatario",
+            "agente": "Agente",
+            "agenteDiContatto": "Agente Di Contatto",
+            "alertCortesia": "Alert Cortesia",
+            "alertFiscali": "Alert Fiscali",
+            "antiriciclaggio": "Antiriciclaggio committenti",
+            "antiriciclaggioAcquirenti": "Antiriciclaggio acquirenti",
+            "cambiaStato": "Cambia stato",
+            "canoneCorrisposto": "Canone corrisposto",
+            "categoria": "Categoria",
+            "categoriaComm": "COMMERCIALE",
+            "categoriaRes": "RESIDENZIALE",
+            "cognomeConduttore": "Cognome Conduttore",
+            "committente": "Committenti",
+            "committenteNuovo": "Nuovo committente",
+            "COMMERCIALE": "COMMERCIALE",
+            "created": "&Egrave; stato generato un nuovo Incarico con identificatore {{ param }}",
+            "dataContatto": "Data Contatto",
+            "dataFineLocazione": "Data Fine Locazione",
+            "dataInizioLocazione": "Data Inizio Locazione",
+            "dataScadenza": "Data Scadenza",
+            "dataScadenzaRange": "Data Scadenza Range( Da / a)",
+            "dataInizio": "Data Inizio",
+            "dataInizioRange": "Data Inizio Range( Da / A)",
+            "datiFiscali": "Dati Fiscali",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Incarico {{ id }}?"
+            },
+            "deleted": "&Egrave; stato eliminato Incarico con identificatore {{ param }}",
+            "detail": {
+                "title": "Incarico"
+            },
+            "flagLocato": "Flag Locato",
+            "home": {
+                "createLabel": "Nuovo Incarico",
+                "createOrEditLabel": "Genera o modifica un Incarico",
+                "editLabel": "Modifica Incarico",
+                "title": "Incarichi"
+            },
+            "immobile": "Immobile",
+            "importoProvvigione": "Importo Provvigione committenti",
+            "importoProvvigioneAcquirenti": "Importo Provvigione acquirenti",
+            "listaContatti": "Lista Contatti",
+            "nomeConduttore": "Nome Conduttore",
+            "noteLocazione": "Note Locazione",
+            "noteTrattativa": "Note Trattativa",
+            "oscuraIncarico": "Oscura Incarico",
+            "partner": "Partner",
+            "prezzoAcquisto": "Prezzo Acquisto",
+            "prezzoMinimo": "Prezzo Minimo",
+            "prezzoRichiesta": "Prezzo Richiesta",
+            "privacy": "Privacy committenti",
+            "privacyAcquirenti": "Privacy acquirenti",
+            "proponenteNuovo": "Nuovo proponente",
+            "proponenti": "Proponenti",
+            "RESIDENZIALE": "RESIDENZIALE",
+            "riferimento": "Riferimento",
+            "segnalatori": "Segnalatori",
+            "segnalatoreNuovo": "Nuovo segnalatore",
+            "stato": "Stato",
+            "telefonoConduttore": "Telefono conduttore",
+            "tipo": "Tipo",
+            "updated": "&Egrave; stato aggiornato Incarico identificato da {{ param }}"
+        }
+    }
+}

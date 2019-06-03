@@ -1,0 +1,337 @@
+/**
+ * Progetto DataBase IMP CASA (Versione 0.6)
+ * 
+ * cd c:\workspace-jh\impcasa
+ * mvnw 
+ * jhipster import-jdl ./jhipster-jdl-0.6-fixed.jh --force
+ *
+ */
+
+DEFAULT_MIN_LENGTH = 0
+DEFAULT_MAX_LENGTH = 1000
+CAP_MAX_LENGTH = 20
+
+
+/**
+* Enum Tipo Tag
+*/
+enum TipoTag {
+    COMMITTENTE, 
+	PROPONENTE,
+	ACQUIRENTE_CONDUTTORE,
+	SEGNALATORE
+}
+ 
+/**
+* Enum Tipo Abiliazione
+*/
+enum BooleanStatus {
+	SI, 
+	NO
+}
+
+/**
+* Enum Stati Incarico
+*/
+enum StatoIncarico {
+    BOZZA, 
+	ATTIVO, 
+	CONCLUSO, 
+	INTERROTTO, 
+	SCADUTO
+}
+
+/**
+* Enum Esito Chiamata
+*/
+enum EsitoChiamata{
+	ESEGUITA,
+	NONRAGGIUNGIBILE,
+	OCCUPATO,
+	NONINTERESSATO
+}
+
+/**
+* Enum Tipo Indirizzo
+*/
+enum TipoIndirizzo {
+    CASA, 
+	LAVORO
+}
+
+/**
+* Enum Ruolo Cliente
+*/
+enum Ruolo {
+    VENDITORE, 
+	ACQUIRENTE,
+	CONDUTTORE,
+	LOCATORE
+}
+
+/**
+* Enum Tipo Negoziazione
+*/
+enum TipoNegoziazione {
+    COMPRAVENDITA, 
+	LOCAZIONE,
+	PRATICATECNICA,
+	PRATICALEGALE,
+	MUTUO,
+	SERVIZIACCESSORI,
+	ALTRO
+}
+
+/**
+* Enum Professioni
+*/
+enum Professioni {
+	NOTAIO, 
+	AVVOCATO, 
+	ARCHITETTO, 
+	INTERMEDIARIO, 
+	AMMINISTRATORE, 
+	BANCARIO, 
+	PORTIERE,
+	ESPERTO, 
+	INGEGNERE, 
+	FREELANCE
+}
+
+/**
+* Enum Canale Notifica
+*/
+enum CanaleNotifica{
+	MAIL,
+	SMS,
+	FACEBOOK,
+	TWITTER
+}
+
+/**
+* Enum Categoria Notifica
+*/
+enum CategoriaNotifica{
+	COMPLEANNO,
+	FATTURA,
+	PROMOZIONE,
+	ALTRO
+}
+
+/**
+* Enum Tipo Notifica
+*/
+enum TipoNotifica{
+	MANUALE,
+	AUTOMATICO
+}
+
+/**
+* Enum Tipo Esito
+*/
+enum TipoEsito{
+	DA_INVIARE,
+	INVIATA,
+	NON_INVIATA
+}
+
+/**
+* Entity Cliente
+*/
+entity Cliente {
+	nome String required,
+	cognome String required,
+	alertCompleanno BooleanStatus,
+	dataNascita LocalDate,
+	meseNascita String,
+	telefono String,
+	email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+	indirizzo String,
+	cap String maxlength(CAP_MAX_LENGTH),
+	regione String,
+	provincia String,
+	citta String,
+	note TextBlob,
+	tags String,
+	codiceAntiriciclaggio String,
+	punteggio Double,
+	codiceFiscale String,
+	abilitato Boolean
+}
+
+/**
+* Entity Acquirente 
+*/
+entity Acquirente {
+	nome String required,
+	cognome String required,
+	alertCompleanno BooleanStatus,
+	dataNascita LocalDate,
+	meseNascita String,
+	telefono String,
+	email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+	indirizzo String,
+	cap String maxlength(CAP_MAX_LENGTH),
+	regione String,
+	provincia String,
+	citta String,
+	note TextBlob,
+	abilitato Boolean
+}
+
+/**
+* Entity Immobile
+*/
+entity Immobile {
+	codice String,
+	descrizione TextBlob,
+	indirizzo String,
+	cap String maxlength(CAP_MAX_LENGTH),
+	regione String,
+	provincia String,
+	citta String,
+	note TextBlob,
+	pathFolder String,
+	riferimentoCatastale String
+}
+
+/**
+* Entity Files
+*/
+entity Files{
+	nome String,
+	dimensione String,
+	estensione String
+}
+
+/**
+* Entity Partner
+*/
+entity Partner {
+	nome String required,
+	cognome String required,
+	codiceFiscale String,
+	professione Professioni,
+	telefonoFisso String,
+	telefonoCellulare String,
+	email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
+	tipoIndirizzo TipoIndirizzo,
+	indirizzo String,
+	cap String maxlength(CAP_MAX_LENGTH),
+	regione String,
+	provincia String,
+	citta String,
+	note TextBlob,
+	abilitato Boolean
+}
+
+/**
+* Entity Incarico
+*/
+entity Incarico {
+	riferimento String,	
+	tipo TipoNegoziazione,
+	stato StatoIncarico,
+	agente String,
+	agenteDiContatto String,
+	dataContatto ZonedDateTime,
+	noteTrattativa TextBlob,
+	datiFiscali TextBlob,
+    alertFiscali BooleanStatus,
+	alertCortesia BooleanStatus,
+	privacy Boolean,
+	antiriciclassio Boolean,
+	prezzoRichiesta Double,
+	prezzoMinimo Double,
+	prezzoAcquisto Double,
+	importoProvvigione Double,
+	oscuraIncarico Boolean
+}
+
+/**
+* Entity Notifiche
+*/
+entity Notifiche{
+	canaleNotifica CanaleNotifica,
+	tipoNotifica TipoNotifica,
+	categoriaNotifica CategoriaNotifica,
+	oggettoNotifica String,
+	testoNotifica TextBlob,
+	destinatariNorifica String,
+	esitoNotifica TipoEsito
+}
+
+/**
+* Entity Lista contatti
+*/
+entity ListaContatti{
+	dateTime String,
+	esito EsitoChiamata,
+	motivazione String
+}
+
+/**
+* Entity Geolocalizzazione
+*/
+entity Geolocalizzazione{
+	immobile String,
+	latitudine String,
+	longitudine String
+}
+
+/**
+* Entity MailTemplate 
+*/
+entity MailTemplate {
+	categoria String required,
+	oggetto String,
+	modello TextBlob required,
+	abilitato Boolean
+}
+
+/**
+* Entity AppSettings 
+*/
+entity AppSettings {
+	categoria String required,
+	chiave String required,
+	valore String required,
+	abilitato Boolean
+}
+
+// Defining multiple oneToOne relationships
+relationship OneToOne {
+	//Incarico{immobile(codice)} to Immobile{incarico(riferimento)},   //FIX MMA 
+	Immobile{locazione(immobile)} to Geolocalizzazione{posizione(codice)}
+}
+
+// Defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	Incarico{immobile(codice)} to Immobile{incarico(riferimento)}   //FIX MMA 
+}
+
+
+// Defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Immobile{Files(nome)} to Files{Immobile(PathFolder)},
+	Cliente{listaContatti(esito)} to ListaContatti{Cliente(cognome)}
+}
+
+// Defining multiple ManyToMany relationships with comments
+relationship ManyToMany {
+	Incarico{partner(cognome)} to Partner{incarico(riferimento)},
+	Incarico{cliente(cognome)} to Cliente{incarico(riferimento)},
+  	Incarico{acquirente(cognome)} to Acquirente{incarico(riferimento)}
+}
+
+
+
+paginate Cliente, Acquirente, Incarico, Partner, Immobile  with pagination
+
+dto * with mapstruct
+
+filter *
+
+service all with serviceImpl
+
+

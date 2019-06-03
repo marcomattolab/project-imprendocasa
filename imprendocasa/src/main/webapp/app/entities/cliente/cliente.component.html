@@ -1,0 +1,383 @@
+<h2 id="page-heading">
+    <span jhiTranslate="imprendocasaApp.cliente.home.title">Clienti</span>
+</h2>
+<jhi-alert></jhi-alert>
+<ngb-accordion #acc="ngbAccordion" activeIds="filtriPanel">
+    <ngb-panel id="filtriPanel">
+        <ng-template ngbPanelTitle>
+            <span jhiTranslate="global.search.filtersLabel">Filtri</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+            <form (ngSubmit)="cerca()" [formGroup]="formCliente">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.codiceFiscale">Codice Fiscale</label>
+                            <input formControlName="codiceFiscale" type="text" class="form-control"/>
+                        </div>
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.indirizzo">Indirizzo</label>
+                            <input formControlName="indirizzo" id="indirizzo" type="text" class="form-control"/>
+                        </div>
+
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.email">Email</label>
+                            <input formControlName="email" type="text" class="form-control"/>
+                        </div>
+
+                        <!--  <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                              <label jhiTranslate="imprendocasaApp.cliente.importoProvvigioniRange">Importo Provvigioni</label>
+                              <div class="row">
+                                  <div class="col-md-6 col-12">
+                                      <div class="input-group form-group">
+                                          <input formControlName="importoProvvigioniD" type="number" class="form-control"/>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6 col-12">
+                                      <div class="input-group form-group">
+                                          <input formControlName="importoProvvigioniA" type="number" class="form-control"/>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                              <label jhiTranslate="imprendocasaApp.cliente.numeroSegnalazioniRange">Numero segnalazioni</label>
+                              <div class="row">
+                                  <div class="col-md-6 col-12">
+                                      <div class="input-group form-group">
+                                          <input formControlName="numeroSegnalazioniD" type="number" class="form-control"/>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6 col-12">
+                                      <div class="input-group form-group">
+                                          <input formControlName="numeroSegnalazioniA" type="number" class="form-control"/>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>-->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                             <label jhiTranslate="imprendocasaApp.cliente.telefonoCellulare">Telefono Cellulare</label>
+                             <input formControlName="telefonoCellulare"  id="telefonoCellulare" type="text" class="form-control"/>
+                         </div> -->
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.nome">Nome</label>
+                            <input formControlName="nome" id="nome" type="text" class="form-control"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                    <label jhiTranslate="imprendocasaApp.cliente.citta">Citta'</label>
+                                    <input formControlName="citta" id="citta" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                                    <label jhiTranslate="imprendocasaApp.cliente.cap">Cap</label>
+                                    <input formControlName="cap" id="cap" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.punteggio">Punteggio</label>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group form-group">
+                                        <input formControlName="punteggioD" type="number" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group form-group">
+                                        <input formControlName="punteggioA" type="number" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         -->
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.dataNascitaRange">Data Nascita</label>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group form-group">
+                                        <input formControlName="dataD" type="date" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="input-group form-group">
+                                        <input formControlName="dataA" type="date" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                              <label jhiTranslate="imprendocasaApp.cliente.numeroPraticheRange">Numero Pratiche </label>
+                              <div class="row">
+                                  <div class="col-md-6 col-12">
+                                      <div class="input-group form-group">
+                                          <input formControlName="numeroPraticheD" type="number" class="form-control"/>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6 col-12">
+                                      <div class="input-group form-group">
+                                          <input formControlName="numeroPraticheA" type="number" class="form-control"/>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>-->
+                        <!-- <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                             <label jhiTranslate="imprendocasaApp.cliente.provvigioniMovimentateRange">Provvigioni movimentate</label>
+                             <div class="row">
+                                 <div class="col-md-6 col-12">
+                                     <div class="input-group form-group">
+                                         <input  type="number" class="form-control"/>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-6 col-12">
+                                     <div class="input-group form-group">
+                                         <input  type="number" class="form-control"/>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div> -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.cognome">Cognome</label>
+                            <input formControlName="cognome" id="cognome" type="text" class="form-control"/>
+                        </div>
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.telefono">Telefono</label>
+                            <input formControlName="telefonoFisso" id="telefonoFisso" type="text" class="form-control"/>
+                        </div>
+                        <div class="mdl-textfield-filter mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                            <label jhiTranslate="imprendocasaApp.cliente.tag" for="field_tag">Tag</label>
+                            <select class="form-control" id="field_tag" multiple name="tag" formControlName="tagId">
+                                <option *ngFor="let tagOption of tags" [value]="tagOption.id"
+                                        ngDefaultControl>{{tagOption.denominazione.toString()}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group float-right">
+                    <button class="btn btn-link" type="button" (click)="resetFiltri()">
+                        <span jhiTranslate="global.search.clearfiltersLabel">Pulisci Filtri</span>
+                    </button>
+                    <button class="btn btn-primary" type="submit">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                        <span jhiTranslate="global.search.buttonLabel">Cerca</span>
+                    </button>
+                    <button class="btn btn-secondary jh-create-entity create-cliente"
+                            [routerLink]="['/cliente/new']" type="button">
+                        <fa-icon [icon]="'plus'"></fa-icon>
+                        <span jhiTranslate="imprendocasaApp.cliente.home.createLabel">Create new Customer</span>
+                    </button>
+                </div>
+            </form>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>
+
+<hr>
+
+<div class="row pb-1">
+    <div class="col-sm-6 col-md-8">
+        <span class="badge badge-light badge-pill" *ngFor="let cliente of getSelectedCustomersAsArray()">
+            {{ cliente.cognome }} {{ cliente.nome }}
+            <button type="button" class="btn btn-light btn-sm align-baseline rounded-circle"
+                    (click)="selectClienteAndSetIndeterminate(cliente)">
+                <span class="fa fa-close"></span>
+            </button>
+        </span>
+    </div>
+
+    <ng-template #tooltipSelezionareCliente>
+        {{'imprendocasaApp.cliente.tooltip.selezionareCliente' | translate}}
+    </ng-template>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="d-flex justify-content-between">
+            <div [ngbTooltip]="noCustomerSelected() ? tooltipSelezionareCliente : ''">
+                <button class="btn btn-primary" type="button" [disabled]="noCustomerSelected()"
+                        (click)="openInvioMailEtichette()">
+                    <span class="fa fa-envelope-o"></span>
+                    <span jhiTranslate="imprendocasaApp.cliente.email">Email</span>
+                </button>
+            </div>
+            <div [ngbTooltip]="noCustomerSelected() ? tooltipSelezionareCliente : ''">
+                <button class="btn btn-primary" type="button" [disabled]="noCustomerSelected()"
+                        (click)="openInvioMailEtichette()">
+                    <span class="fa fa-print"></span>
+                    <span jhiTranslate="imprendocasaApp.cliente.stampaEtichette">Stampa etichette</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive" *ngIf="clientes">
+    <table class="table table-striped">
+        <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)"
+            class="text-center-exclude-first no-wrap">
+            <!--<th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th>
+                <input *ngIf="!showIndeterminate" type="checkbox"
+                       [ngModel]="selezionaTuttiClienti" (click)="selectAll(selezionaTuttiClienti)">
+                <input *ngIf="showIndeterminate" type="checkbox"
+                       [indeterminate]="showIndeterminate" (click)="selectAll(false)">
+            </th>
+            <th jhiSortBy="codiceFiscale">
+                <span jhiTranslate="imprendocasaApp.cliente.codiceFiscale">CodiceFiscale</span>
+                <span class="fa" [ngClass]="getOrderByIcon('codiceFiscale')"></span>
+            </th>
+            <th jhiSortBy="tagId">
+                <span jhiTranslate="imprendocasaApp.cliente.tag">Tipo cliente</span>
+                <span class="fa" [ngClass]="getOrderByIcon('tagId')"></span>
+            </th>
+            <th jhiSortBy="nome">
+                <span jhiTranslate="imprendocasaApp.cliente.nome">Nome</span>
+                <span class="fa" [ngClass]="getOrderByIcon('nome')"></span>
+            </th>
+            <th jhiSortBy="cognome">
+                <span jhiTranslate="imprendocasaApp.cliente.cognome">Cognome</span>
+                <span class="fa" [ngClass]="getOrderByIcon('cognome')"></span>
+            </th>
+            <!-- <th jhiSortBy="alertCompleanno"><span jhiTranslate="imprendocasaApp.cliente.alertCompleanno">Alert Compleanno</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="dataNascita">
+                <span jhiTranslate="imprendocasaApp.cliente.dataNascita" class="no-wrap">Data Nascita</span>
+                <span class="fa no-wrap" [ngClass]="getOrderByIcon('dataNascita')"></span>
+            </th>
+            <!-- <th jhiSortBy="meseNascita"><span jhiTranslate="imprendocasaApp.cliente.meseNascita">Mese Nascita</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <!--<th jhiSortBy="telefonoFisso" >
+                <span jhiTranslate="imprendocasaApp.cliente.telefonoFisso">Telefono Fisso</span>
+                <span class="fa" [ngClass]="getOrderByIcon('telefonoFisso')"></span>
+            </th> -->
+            <th jhiSortBy="telefonoCellulare">
+                <span jhiTranslate="imprendocasaApp.cliente.telefono">Telefono Cellulare</span>
+                <span class="fa" [ngClass]="getOrderByIcon('telefonoCellulare')"></span>
+            </th>
+            <th jhiSortBy="email">
+                <span jhiTranslate="imprendocasaApp.cliente.email">Email</span>
+                <span class="fa" [ngClass]="getOrderByIcon('email')"></span>
+            </th>
+            <th jhiSortBy="indirizzo">
+                <span jhiTranslate="imprendocasaApp.cliente.indirizzo">Indirizzo</span>
+                <span class="fa" [ngClass]="getOrderByIcon('indirizzo')"></span>
+            </th>
+            <th jhiSortBy="cap">
+                <span jhiTranslate="imprendocasaApp.cliente.cap">Cap</span>
+                <span class="fa" [ngClass]="getOrderByIcon('cap')"></span>
+            </th>
+            <!-- <th jhiSortBy="cap"><span jhiTranslate="imprendocasaApp.cliente.cap">Cap</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <!-- <th jhiSortBy="regione"><span jhiTranslate="imprendocasaApp.cliente.regione">Regione</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <!-- <th jhiSortBy="provincia"><span jhiTranslate="imprendocasaApp.cliente.provincia">Provincia</span> <fa-icon [icon]="'sort'"></fa-icon></th> -->
+            <th jhiSortBy="citta">
+                <span jhiTranslate="imprendocasaApp.cliente.citta">Citta</span>
+                <span class="fa" [ngClass]="getOrderByIcon('citta')"></span>
+            </th>
+            <!--<th jhiSortBy="note"><span jhiTranslate="imprendocasaApp.cliente.note">Note</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+            <!--<th jhiSortBy="abilitato"><span jhiTranslate="imprendocasaApp.cliente.abilitato">Abilitato</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+            <!-- <th jhiSortBy="importoProvvigioni">
+                 <span jhiTranslate="imprendocasaApp.cliente.importoProvvigioni"
+                       class="no-wrap">Importo Provvigioni</span>
+                 <span class="fa" [ngClass]="getOrderByIcon('importoProvvigioni')"></span>
+             </th>
+             <th jhiSortBy="numeroPratiche">
+                 <span jhiTranslate="imprendocasaApp.cliente.numeroPratiche" class="no-wrap">Numero Pratiche</span>
+                 <span class="fa" [ngClass]="getOrderByIcon('numeroPratiche')"></span>
+             </th>
+             <th jhiSortBy="numeroSegnalazioni">
+                 <span jhiTranslate="imprendocasaApp.cliente.numeroSegnalazioni"
+                       class="no-wrap">Numero Segnalazioni</span>
+                 <span class="fa" [ngClass]="getOrderByIcon('numeroSegnalazioni')"></span>
+             </th> -->
+
+            <!-- 
+            <th jhiSortBy="punteggio" >
+                <span jhiTranslate="imprendocasaApp.cliente.punteggio">Punteggio</span>
+                <span class="fa" [ngClass]="getOrderByIcon('punteggio')"></span>
+            </th>
+
+            <th >
+                <span jhiTranslate="imprendocasaApp.cliente.completamento">Completamento</span>
+                <fa-icon [icon]="'sort'"></fa-icon>
+            </th>
+             -->
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let cliente of clientes" class="text-center-exclude-first no-wrap">
+            <th><input type="checkbox" [ngModel]="cliente.selected"
+                       (click)="selectClienteAndSetIndeterminate(cliente)"></th>
+            <!-- <td><a [routerLink]="['/cliente', cliente.id, 'view' ]">{{cliente.id}}</a></td> -->
+            <td>{{cliente.codiceFiscale}}</td>
+            <td>
+                <div *ngFor="let tag of cliente.tags">
+                    <span class="badge badge-info">{{ tag.denominazione }}</span>
+                </div>
+            </td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cognome}}</td>
+            <td>{{cliente.dataNascita | date:'mediumDate'}}</td>
+            <!-- <td jhiTranslate="{{'imprendocasaApp.BooleanStatus.' + cliente.alertCompleanno}}">{{cliente.alertCompleanno}}</td> -->
+            <td>{{cliente.telefonoFisso }}</td>
+            <!-- <td>{{cliente.meseNascita}}</td> -->
+            <!-- <td >{{cliente.telefonoFisso}}</td> -->
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.indirizzo}}</td>
+            <td>{{cliente.cap}}</td>
+
+            <!-- <td>{{cliente.cap}}</td> -->
+            <!-- <td>{{cliente.regione}}</td>
+            <td>{{cliente.provincia}}</td> -->
+            <td>{{cliente.citta}}</td>
+            <!--<td>{{cliente.note}}</td>-->
+            <!--<td>{{cliente.abilitato}}</td>-->
+            <!--<td>{{cliente.importoProvvigioni}}</td>
+            <td>{{cliente.numeroPratiche}}</td>
+            <td>{{cliente.numeroSegnalazioni}}</td>-->
+            <!--<td>{{cliente.punteggio}}</td>-->
+            <!-- <td> {{retrieveCompletamento(cliente.id)}}%</td> -->
+            <!-- <td>{{retrieveCompletamento(cliente.id)}}%</td> -->
+            <td class="text-right">
+                <div class="btn-group flex-btn-group-container">
+                    <button type="submit" [routerLink]="['/cliente', cliente.id, 'view' ]"
+                            class="btn btn-info btn-sm">
+                        <fa-icon [icon]="'eye'"></fa-icon>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                    </button>
+                    <button *ngIf="cliente.editAvaiable" type="submit" [routerLink]="['/cliente', cliente.id, 'edit']"
+                            class="btn btn-primary btn-sm">
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                    </button>
+                    <button *ngIf="cliente.deleteAvaiable" type="submit"
+                            [routerLink]="['/', { outlets: { popup: 'cliente/'+ cliente.id + '/delete'} }]"
+                            replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                        <fa-icon [icon]="'times'"></fa-icon>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="clientes && clientes.length">
+    <div class="row justify-content-center">
+        <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                        [itemsPerPage]="itemsPerPage"></jhi-item-count>
+    </div>
+    <div class="row justify-content-center">
+        <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                        [rotate]="true" [boundaryLinks]="true"
+                        (pageChange)="loadPage(page)"></ngb-pagination>
+    </div>
+</div>
+
+

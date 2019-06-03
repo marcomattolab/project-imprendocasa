@@ -1,0 +1,251 @@
+{
+    "entity": {
+        "action": {
+            "addblob": "Add blob",
+            "addimage": "Add image",
+            "back": "Back",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "edit": "Edit",
+            "open": "Open",
+            "remove": "Remove",
+            "save": "Save",
+            "view": "View"
+        },
+        "delete": {
+            "title": "Confirm delete operation"
+        },
+        "detail": {
+            "field": "Field",
+            "value": "Value"
+        },
+        "validation": {
+            "datetimelocal": "This field should be a date and time.",
+            "max": "This field cannot be more than {{ max }}.",
+            "maxbytes": "This field cannot be more than {{ max }} bytes.",
+            "maxlength": "This field cannot be longer than {{ max }} characters.",
+            "min": "This field should be at least {{ min }}.",
+            "minbytes": "This field should be at least {{ min }} bytes.",
+            "minlength": "This field is required to be at least {{ min }} characters.",
+            "number": "This field should be a number.",
+            "pattern": "This field should follow pattern for {{ pattern }}.",
+            "patternLogin": "This field can only contain letters, digits and e-mail addresses.",
+            "required": "This field is required."
+        }
+    },
+    "error": {
+        "emailexists": "Email is already in use!",
+        "idexists": "A new {{ entityName }} cannot already have an ID",
+        "idnull": "Invalid ID",
+        "internalServerError": "Internal server error",
+        "NotNull": "Field {{ fieldName }} cannot be empty!",
+        "server.not.reachable": "Server not reachable",
+        "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
+        "url.not.found": "Not found",
+        "userexists": "Login name already used!"
+    },
+    "footer": "This is your footer",
+    "global": {
+        "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+        "field": {
+            "id": "ID"
+        },
+        "form": {
+            "confirmpassword": "New password confirmation",
+            "confirmpassword.placeholder": "Confirm the new password",
+            "currentpassword": "Current password",
+            "currentpassword.placeholder": "Current password",
+            "email": "Email",
+            "email.placeholder": "Your email",
+            "newpassword": "New password",
+            "newpassword.placeholder": "New password",
+            "username": "Username",
+            "username.placeholder": "Your username"
+        },
+        "item-count": "Showing {{first}} - {{second}} of {{total}} items.",
+        "menu": {
+            "account": {
+                "login": "Sign in",
+                "logout": "Sign out",
+                "main": "Account",
+                "password": "Password",
+                "register": "Register",
+                "sessions": "Sessions",
+                "settings": "Settings"
+            },
+            "admin": {
+                "apidocs": "API",
+                "audits": "Audits",
+                "configuration": "Configuration",
+                "database": "Database",
+                "entity-audit": "Entity Audit",
+                "health": "Health",
+                "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)",
+                "logs": "Logs",
+                "main": "Administration",
+                "metrics": "Metrics",
+                "tracker": "User tracker",
+                "userManagement": "User management"
+            },
+            "dashboard": {
+                "barchart": "BarChart",
+                "doughnutchart": "DoughnutChart",
+                "linechart": "LineChart",
+                "main": "Dashboard",
+                "piechart": "PieChart",
+                "polarareachart": "PolarAreaChart",
+                "radarchart": "RadarChart"
+            },
+            "entities": {
+                "acquirente": "Acquirente",
+                "appSettings": "App Settings",
+                "cliente": "Cliente",
+                "files": "Files",
+                "geolocalizzazione": "Geolocalizzazione",
+                "immobile": "Immobile",
+                "incarico": "Incarico",
+                "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+                "listaContatti": "Lista Contatti",
+                "mailTemplate": "Mail Template",
+                "main": "Entities",
+                "notifiche": "Notifiche",
+                "partner": "Partner",
+                "professione": "Professione",
+                "tag": "Tag"
+            },
+            "home": "Home",
+            "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "language": "Language",
+            "primeng": {
+                "accordion": "Accordion",
+                "autocomplete": "AutoComplete",
+                "barchart": "BarChart",
+                "blockui": "BlockUI",
+                "breadcrumb": "Breadcrumb",
+                "button": "Button",
+                "calendar": "Calendar",
+                "captcha": "Captcha",
+                "card": "Card",
+                "carousel": "Carousel",
+                "checkbox": "Checkbox&TriCheckbox",
+                "chips": "Chips",
+                "colorpicker": "ColorPicker",
+                "confirmdialog": "ConfirmDialog",
+                "contextmenu": "ContextMenu",
+                "datagrid": "DataGrid",
+                "datalist": "DataList",
+                "datascroller": "DataScroller",
+                "datatable": "DataTable",
+                "dataview": "DataView",
+                "defer": "Defer",
+                "dialog": "Dialog",
+                "doughnutchart": "DoughnutChart",
+                "dragdrop": "DragDrop",
+                "editor": "Editor",
+                "fieldset": "Fieldset",
+                "fileupload": "FileUpload",
+                "galleria": "Galleria",
+                "gmap": "Gmap",
+                "grid": "Grid",
+                "growl": "Growl",
+                "inplace": "Inplace",
+                "inputgroup": "InputGroup",
+                "inputmask": "InputMask",
+                "inputswitch": "InputSwitch",
+                "inputtext": "InputText",
+                "inputtextarea": "InputTextArea",
+                "keyfilter": "KeyFilter",
+                "lightbox": "Lightbox",
+                "linechart": "LineChart",
+                "listbox": "Listbox",
+                "main": "primeng",
+                "megamenu": "MegaMenu",
+                "menu": "Menu",
+                "menubar": "Menubar",
+                "messages": "Messages",
+                "orderlist": "OrderList",
+                "orgchart": "OrgChart",
+                "overlaypanel": "OverlayPanel",
+                "paginator": "Paginator",
+                "panel": "Panel",
+                "panelmenu": "PanelMenu",
+                "passwordindicator": "Password Indicator",
+                "picklist": "PickList",
+                "piechart": "PieChart",
+                "polarareachart": "PolarAreaChart",
+                "progressbar": "ProgressBar",
+                "progressspinner": "ProgressSpinner",
+                "radarchart": "RadarChart",
+                "radiobutton": "RadioButton",
+                "rating": "Rating",
+                "rtl": "RTL",
+                "schedule": "Schedule",
+                "scrollpanel": "ScrollPanel",
+                "select": "MultiSelect&Dropdown",
+                "selectbutton": "SelectButton",
+                "sidebar": "SideBar",
+                "slidemenu": "SlideMenu",
+                "slider": "Slider",
+                "spinner": "Spinner",
+                "splitbutton": "SplitButton",
+                "steps": "Steps",
+                "table": "Table",
+                "tabmenu": "TabMenu",
+                "tabview": "TabView",
+                "terminal": "Terminal",
+                "tieredmenu": "TieredMenu",
+                "toast": "Toast",
+                "togglebutton": "ToggleButton",
+                "toolbar": "Toolbar",
+                "tooltip": "Tooltip",
+                "tree": "Tree",
+                "treetable": "TreeTable",
+                "validation": "validation"
+            }
+        },
+        "messages": {
+            "error": {
+                "dontmatch": "The password and its confirmation do not match!"
+            },
+            "info": {
+                "authenticated": {
+                    "link": "sign in",
+                    "prefix": "If you want to ",
+                    "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+                },
+                "register": {
+                    "link": "Register a new account",
+                    "noaccount": "You don't have an account yet?"
+                }
+            },
+            "validate": {
+                "confirmpassword": {
+                    "maxlength": "Your confirmation password cannot be longer than 50 characters.",
+                    "minlength": "Your confirmation password is required to be at least 4 characters.",
+                    "required": "Your confirmation password is required."
+                },
+                "email": {
+                    "invalid": "Your email is invalid.",
+                    "maxlength": "Your email cannot be longer than 50 characters.",
+                    "minlength": "Your email is required to be at least 5 characters.",
+                    "required": "Your email is required."
+                },
+                "newpassword": {
+                    "maxlength": "Your password cannot be longer than 50 characters.",
+                    "minlength": "Your password is required to be at least 4 characters.",
+                    "required": "Your password is required.",
+                    "strength": "Password strength:"
+                }
+            }
+        },
+        "ribbon": {
+            "dev": "Development"
+        },
+        "search": {
+            "buttonLabel": "Search",
+            "clearfiltersLabel": "Clean Filters",
+            "filtersLabel": "Search Filters"
+        },
+        "title": "Imprendocasa"
+    }
+}

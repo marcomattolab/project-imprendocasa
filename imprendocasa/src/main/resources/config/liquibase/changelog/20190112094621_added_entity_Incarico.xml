@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Incarico.
+    -->
+    <changeSet id="20190113163151-1" author="jhipster">
+        <createTable tableName="incarico" remarks="Entity Incarico">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="riferimento" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="tipo" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="categoria_incarico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="stato" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data_scadenza" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="agente" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="agente_di_contatto" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data_contatto" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="note_trattativa" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dati_fiscali" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data_alert_fiscali" type="date">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="alert_fiscali" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="ricorrenza_alert_fiscali" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="alert_cortesia" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+              <column name="data_alert_cortesia" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ricorrenza_alert_cortesia" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="alert_ricorrenza" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data_alert_ricorrenza" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ricorrenza_alert_ricorrenza" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="privacy" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="antiriciclaggio" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="privacy_acquirenti" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="antiriciclaggio_acquirenti" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="prezzo_richiesta" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="prezzo_minimo" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="prezzo_acquisto" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="importo_provvigione" type="double">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="importo_provvigione_acquirenti" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="oscura_incarico" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="flag_locato" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nome_conduttore" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cognome_conduttore" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="canone_corrisposto" type="double">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="telefono_conduttore" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="data_inizio_locazione" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="data_fine_locazione" type="date">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="note_locazione" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="immobile_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+        <createTable tableName="incarico_partner">
+            <column name="partners_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="incaricos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="incaricos_id, partners_id" tableName="incarico_partner"/>
+        
+        <createTable tableName="incarico_committente">
+            <column name="committentes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="incaricos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="incaricos_id, committentes_id" tableName="incarico_committente"/>
+        
+        <createTable tableName="incarico_proponente">
+            <column name="proponentes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="incaricos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="incaricos_id, proponentes_id" tableName="incarico_proponente"/>
+        
+        <createTable tableName="incarico_acquirente_locatario">
+            <column name="acquirente_locatarios_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="incaricos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="incaricos_id, acquirente_locatarios_id" tableName="incarico_acquirente_locatario"/>
+        
+        <createTable tableName="incarico_segnalatore">
+            <column name="segnalatores_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="incaricos_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="incaricos_id, segnalatores_id" tableName="incarico_segnalatore"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+    
+    <!-- Added the entity audit columns -->
+  	<changeSet id="20181112191718-audit-1" author="jhipster-entity-audit">
+        <addColumn tableName="incarico">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    
+</databaseChangeLog>

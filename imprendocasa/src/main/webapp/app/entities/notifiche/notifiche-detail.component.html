@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="notifiche">
+            <h2><span jhiTranslate="imprendocasaApp.notifiche.detail.title">Notifiche</span> {{notifiche.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.canaleNotifica">Canale Notifica</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'imprendocasaApp.CanaleNotifica.' + notifiche.canaleNotifica}}">{{notifiche.canaleNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.tipoNotifica">Tipo Notifica</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'imprendocasaApp.TipoNotifica.' + notifiche.tipoNotifica}}">{{notifiche.tipoNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.categoriaNotifica">Categoria Notifica</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'imprendocasaApp.CategoriaNotifica.' + notifiche.categoriaNotifica}}">{{notifiche.categoriaNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.oggettoNotifica">Oggetto Notifica</span></dt>
+                <dd>
+                    <span>{{notifiche.oggettoNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.testoNotifica">Testo Notifica</span></dt>
+                <dd>
+                    <span>{{notifiche.testoNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.numeroDestinatari">Numero Destinatari</span></dt>
+                <dd>
+                    <span>{{notifiche.numeroDestinatari}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.destinatariNotifica">Destinatari Notifica</span></dt>
+                <dd>
+                    <span>{{notifiche.destinatariNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.esitoNotifica">Esito Notifica</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'imprendocasaApp.TipoEsito.' + notifiche.esitoNotifica}}">{{notifiche.esitoNotifica}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.notifiche.dettagliEsito">Dettagli Esito</span></dt>
+                <dd>
+                    <span>{{notifiche.dettagliEsito}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notifiche', notifiche.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

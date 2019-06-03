@@ -1,0 +1,64 @@
+{
+  "imprendocasaApp": {
+    "cliente": {
+      "abilitato": "Abilitato",
+      "alertCompleanno": "Alert Compleanno",
+      "cap": "Cap",
+      "citta": "Citt&agrave;",
+      "titolo": "Titolo",
+      "ragioneSociale": "Ragione Sociale",
+      "agente": "Agente",
+      "codiceAntiriciclaggio": "Codice Antiriciclaggio",
+      "codiceFiscale": "Codice Fiscale / P.IVA",
+      "cognome": "Cognome",
+      "completamento": "Completamento",
+      "created": "&Egrave; stato generato un nuovo Cliente con identificatore {{ param }}",
+      "dataNascita": "Data Nascita",
+      "dataNascitaRange": "Data Nascita (Range Da / A)",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Cliente {{ id }}?"
+      },
+      "deleted": "&Egrave; stato eliminato Cliente con identificatore {{ param }}",
+      "detail": {
+        "title": "Cliente"
+      },
+      "email": "Email",
+      "home": {
+        "createLabel": "Nuovo Cliente",
+        "createOrEditLabel": "Genera o modifica un Cliente",
+        "title": "Clienti"
+      },
+      "importoProvvigioni": "Importo Provvigioni",
+      "provvigionimovimentate": "Provvigioni Movimentate",
+      "provvigioniMovimentateRange": "Provvigioni Movimentate (Range Da / A)",
+      "importoProvvigioniDerivate": "Provvigioni Derivate",
+      "importoProvvigioniDerivateRange": "Provvigioni Derivate (Range Da / A)",
+      "incarico": "Incarico",
+      "indirizzo": "Indirizzo",
+      "listaContatti": "Lista Contatti",
+      "meseNascita": "Mese Nascita",
+      "nome": "Nome",
+      "note": "Note",
+      "numeroPratiche": "Numero Incarichi",
+      "numeroPraticheRange": "Numero Incarichi (Range Da / A) ",
+      "numeroSegnalazioni": "Numero Segnalazioni",
+      "numeroSegnalazioniRange": "Numero Segnalazioni (Range Da / A)",
+      "provincia": "Provincia",
+      "provvigione": "Provvigione",
+      "punteggio": "Punteggio",
+      "ragioneSociale": "Ragione Sociale",
+      "regione": "Regione",
+      "stampaEtichette": "Stampa etichette",
+      "tag": "Tipo Cliente",
+      "tooltip": {
+        "selezionareCliente": "Selezionare almeno un cliente"
+      },
+      "telefonoCellulare": "Telefono Cellulare",
+      "telefonoFisso": "Telefono Fisso",
+      "telefono": "Telefono",
+      "titolo": "Titolo",
+      "importoProvvigioniRange": "Importo Provvigioni (Range Da / A)",
+      "updated": "&Egrave; stato aggiornato Cliente identificato da {{ param }}"
+    }
+  }
+}

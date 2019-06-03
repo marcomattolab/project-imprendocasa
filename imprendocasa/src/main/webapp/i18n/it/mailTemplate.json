@@ -1,0 +1,25 @@
+{
+    "imprendocasaApp": {
+        "mailTemplate": {
+            "home": {
+                "title": "Mail Template",
+                "createLabel": "Genera un nuovo Mail Template",
+                "createOrEditLabel": "Genera o modifica un Mail Template"
+            },
+            "created": "È stato generato un nuovo Mail Template con identificatore {{ param }}",
+            "updated": "È stato aggiornato Mail Template identificato da {{ param }}",
+            "deleted": "È stato eliminato Mail Template con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Mail Template {{ id }}?"
+            },
+            "detail": {
+                "title": "Mail Template"
+            },
+            "codice": "Codice",
+            "categoria": "Categoria",
+            "oggetto": "Oggetto",
+            "modello": "Modello",
+            "abilitato": "Abilitato"
+        }
+    }
+}

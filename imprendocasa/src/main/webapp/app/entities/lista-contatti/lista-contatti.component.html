@@ -1,0 +1,195 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="imprendocasaApp.listaContatti.home.title">Lista Contattis</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-lista-contatti"
+                [routerLink]="['/lista-contatti/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span jhiTranslate="imprendocasaApp.listaContatti.home.createLabel"> Create new Lista Contatti </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <ngb-accordion #acc="ngbAccordion" activeIds="filtriPanel">
+        <ngb-panel id="filtriPanel">
+            <ng-template ngbPanelTitle>
+                <span jhiTranslate="global.search.filtersLabel">Filtri</span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <form (ngSubmit)="cerca()">
+                    <div class="row" [formGroup]="listaContattiForm">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label jhiTranslate="imprendocasaApp.listaContatti.esito">Esito</label>
+                                <select class="form-control" formControlName="esito">
+                                    <option></option>
+                                    <option *ngFor="let option of statiChiamata"
+                                            [value]="option">{{('imprendocasaApp.EsitoChiamata.' + option) | translate}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label jhiTranslate="imprendocasaApp.listaContatti.dateTime">Data Contatto</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="dataDa" type="date" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="input-group form-group">
+                                            <input formControlName="dataA" type="date" class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label jhiTranslate="imprendocasaApp.listaContatti.motivazione">Motivazione</label>
+                                <input formControlName="motivazione" id="motivazione" type="text" class="form-control"/>
+                            </div>
+                           <!-- <div class="form-group">
+                                <label jhiTranslate="imprendocasaApp.listaContatti.committente">Committente</label>
+                                <input formControlName="cliente" id="typeahead-template" type="text"
+                                       class="form-control" [ngbTypeahead]="searchClientes"
+                                       [inputFormatter]="clienteFormatter" [resultFormatter]="clienteFormatter"/>
+                            </div>-->
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label jhiTranslate="imprendocasaApp.listaContatti.incarico">Incarico</label>
+                                <input formControlName="incarico" id="typeahead-template-incarico" type="text"
+                                       class="form-control" [ngbTypeahead]="searchIncarico"
+                                       [inputFormatter]="incaricoFormatter" [resultFormatter]="incaricoFormatter"/>
+                            </div>
+                        </div>
+                        <!--
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label jhiTranslate="sraApp.intervento.autogru">AutoGru</label>
+                                <select class="form-control" id="autoGru" formControlName="autoGru">
+                                    <option></option>
+                                    <option *ngFor="let gru of autoGru" value="{{gru.id}}">{{gru.targa}} ({{gru.numero}})</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label jhiTranslate="sraApp.intervento.autista">Autista</label>
+                                <input formControlName="autista" id="typeahead-template" type="text" class="form-control" [ngbTypeahead]="searchAutista"
+                                    [inputFormatter]="autistaFormatter" [resultFormatter]="autistaFormatter" />
+                            </div>
+                        </div>
+                        -->
+                    </div>
+
+                    <div class="form-group float-right">
+                        <button class="btn btn-link" type="button" (click)="resetFiltri()">
+                            <span jhiTranslate="global.search.clearfiltersLabel">Pulisci Filtri</span>
+                        </button>
+                        <button class="btn btn-primary" type="submit">
+                            <fa-icon [icon]="'search'"></fa-icon>
+                            <span jhiTranslate="global.search.buttonLabel">Cerca</span>
+                        </button>
+                        <button class="btn btn-secondary jh-create-entity create-lista-contatti"
+                                [routerLink]="['/lista-contatti/new']" type="button">
+                            <fa-icon [icon]="'plus'"></fa-icon>
+                            <span jhiTranslate="imprendocasaApp.listaContatti.home.createLabel">Create new Lista contatti</span>
+                        </button>
+                    </div>
+                </form>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+
+    <div class="table-responsive" *ngIf="listaContattis">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)"
+                class="text-center-exclude-first">
+                <th jhiSortBy="id">
+                    <span jhiTranslate="global.field.id">ID</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('id')"></span>
+                </th>
+                <th jhiSortBy="dateTime">
+                    <span jhiTranslate="imprendocasaApp.listaContatti.dateTime">Date Time</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('dateTime')"></span>
+                </th>
+                <th jhiSortBy="esito">
+                    <span jhiTranslate="imprendocasaApp.listaContatti.esito">Esito</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('esito')"></span>
+                </th>
+                <th jhiSortBy="motivazione">
+                    <span jhiTranslate="imprendocasaApp.listaContatti.motivazione">Motivazione</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('motivazione')"></span>
+                </th>
+                <th jhiSortBy="note">
+                    <span jhiTranslate="imprendocasaApp.listaContatti.note">Note</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('note')"></span>
+                </th>
+                <th jhiSortBy="clienteCognome">
+                    <span jhiTranslate="imprendocasaApp.listaContatti.committente">Committente</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('clienteCognome')"></span>
+                </th>
+                <th jhiSortBy="incaricoRiferimento">
+                    <span jhiTranslate="imprendocasaApp.listaContatti.incarico">Incarico</span>
+                    <span class="fa" [ngClass]="getOrderByIcon('incaricoRiferimento')"></span>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let listaContatti of listaContattis ;trackBy: trackId" class="text-center-exclude-first">
+                <td><a [routerLink]="['/lista-contatti', listaContatti.id, 'view' ]">{{listaContatti.id}}</a></td>
+                <td>{{listaContatti.dateTime | date:'medium'}}</td>
+                <td jhiTranslate="{{'imprendocasaApp.EsitoChiamata.' + listaContatti.esito}}">{{listaContatti.esito}}</td>
+                <td>{{listaContatti.motivazione}}</td>
+                <td>{{listaContatti.note}}</td>
+                <td>
+                    <div *ngIf="listaContatti.clienteId">
+                        <a [routerLink]="['../cliente', listaContatti.clienteId , 'view' ]">{{listaContatti.clienteCognome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="listaContatti.incaricoId">
+                        <a [routerLink]="['../incarico', listaContatti.incaricoId , 'view' ]">{{listaContatti.incaricoRiferimento}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/lista-contatti', listaContatti.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="button"
+                                [routerLink]="['/lista-contatti', listaContatti.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="button"
+                                [routerLink]="['/', { outlets: { popup: 'lista-contatti/'+ listaContatti.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="listaContattis && listaContattis.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5"
+                            [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                            [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

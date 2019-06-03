@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="files">
+            <h2><span jhiTranslate="imprendocasaApp.files.detail.title">Files</span> {{files.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="imprendocasaApp.files.nome">Nome</span></dt>
+                <dd>
+                    <span>{{files.nome}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.files.dimensione">Dimensione</span></dt>
+                <dd>
+                    <span>{{files.dimensione}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.files.estensione">Estensione</span></dt>
+                <dd>
+                    <span>{{files.estensione}}</span>
+                </dd>
+                <dt><span jhiTranslate="imprendocasaApp.files.immobile">Immobile</span></dt>
+                <dd>
+                    <div *ngIf="files.immobileId">
+                        <a [routerLink]="['/immobile', files.immobileId, 'view']">{{files.immobilePathFolder}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/files', files.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

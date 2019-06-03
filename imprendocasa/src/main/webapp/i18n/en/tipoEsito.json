@@ -1,0 +1,10 @@
+{
+    "imprendocasaApp": {
+        "TipoEsito": {
+            "null": "",
+            "DA_INVIARE": "DA_INVIARE",
+            "INVIATA": "INVIATA",
+            "NON_INVIATA": "NON_INVIATA"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "imprendocasaApp": {
+        "CategoriaNotifica": {
+            "null": "",
+            "COMPLEANNO": "COMPLEANNO",
+            "FATTURA": "FATTURA",
+            "PROMOZIONE": "PROMOZIONE",
+            "ALTRO": "ALTRO"
+        }
+    }
+}

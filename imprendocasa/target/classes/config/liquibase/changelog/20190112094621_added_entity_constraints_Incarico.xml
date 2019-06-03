@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Incarico.
+    -->
+    <changeSet id="20190113163151-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="immobile_id"
+                                 baseTableName="incarico"
+                                 constraintName="fk_incarico_immobile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="immobile"/>
+
+        <addForeignKeyConstraint baseColumnNames="incaricos_id"
+                                 baseTableName="incarico_partner"
+                                 constraintName="fk_incarico_partner_incaricos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="incarico"/>
+        <addForeignKeyConstraint baseColumnNames="partners_id"
+                                 baseTableName="incarico_partner"
+                                 constraintName="fk_incarico_partner_partners_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="partner"/>
+        
+        <addForeignKeyConstraint baseColumnNames="incaricos_id"
+                                 baseTableName="incarico_committente"
+                                 constraintName="fk_incarico_committente_incaricos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="incarico"/>
+        <addForeignKeyConstraint baseColumnNames="committentes_id"
+                                 baseTableName="incarico_committente"
+                                 constraintName="fk_incarico_committente_committentes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+        
+        <addForeignKeyConstraint baseColumnNames="incaricos_id"
+                                 baseTableName="incarico_proponente"
+                                 constraintName="fk_incarico_proponente_incaricos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="incarico"/>
+        <addForeignKeyConstraint baseColumnNames="proponentes_id"
+                                 baseTableName="incarico_proponente"
+                                 constraintName="fk_incarico_proponente_proponentes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+        
+        <addForeignKeyConstraint baseColumnNames="incaricos_id"
+                                 baseTableName="incarico_acquirente_locatario"
+                                 constraintName="fk_incarico_acquirente_locatario_incaricos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="incarico"/>
+        <addForeignKeyConstraint baseColumnNames="acquirente_locatarios_id"
+                                 baseTableName="incarico_acquirente_locatario"
+                                 constraintName="fk_incarico_acquirente_locatario_acquirente_locatarios_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+        
+        <addForeignKeyConstraint baseColumnNames="incaricos_id"
+                                 baseTableName="incarico_segnalatore"
+                                 constraintName="fk_incarico_segnalatore_incaricos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="incarico"/>
+        <addForeignKeyConstraint baseColumnNames="segnalatores_id"
+                                 baseTableName="incarico_segnalatore"
+                                 constraintName="fk_incarico_segnalatore_segnalatores_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+        
+    </changeSet>
+</databaseChangeLog>

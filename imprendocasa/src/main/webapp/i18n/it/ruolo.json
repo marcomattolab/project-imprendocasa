@@ -1,0 +1,11 @@
+{
+    "imprendocasaApp": {
+        "Ruolo": {
+            "null": "",
+            "VENDITORE": "VENDITORE",
+            "ACQUIRENTE": "ACQUIRENTE",
+            "CONDUTTORE": "CONDUTTORE",
+            "LOCATORE": "LOCATORE"
+        }
+    }
+}

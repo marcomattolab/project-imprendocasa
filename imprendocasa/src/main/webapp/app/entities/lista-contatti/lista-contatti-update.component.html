@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-lista-contatti-heading" jhiTranslate="imprendocasaApp.listaContatti.home.createOrEditLabel">Create or edit a Lista Contatti</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!listaContatti.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="listaContatti.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.listaContatti.dateTime" for="field_dateTime">Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_dateTime" type="datetime-local" class="form-control" name="dateTime" [(ngModel)]="dateTime"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dateTime?.dirty && editForm.controls.dateTime?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dateTime?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dateTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.listaContatti.esito" for="field_esito">Esito</label>
+                    <select class="form-control" name="esito" [(ngModel)]="listaContatti.esito" id="field_esito"  required>
+                        <option value="ESEGUITA">{{'imprendocasaApp.EsitoChiamata.ESEGUITA' | translate}}</option>
+                        <option value="NON_RAGGIUNGIBILE">{{'imprendocasaApp.EsitoChiamata.NON_RAGGIUNGIBILE' | translate}}</option>
+                        <option value="OCCUPATO">{{'imprendocasaApp.EsitoChiamata.OCCUPATO' | translate}}</option>
+                        <option value="NON_INTERESSATO">{{'imprendocasaApp.EsitoChiamata.NON_INTERESSATO' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.esito?.dirty && editForm.controls.esito?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.esito?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.listaContatti.motivazione" for="field_motivazione">Motivazione</label>
+                    <input type="text" class="form-control" name="motivazione" id="field_motivazione"
+                        [(ngModel)]="listaContatti.motivazione" required/>
+                    <div [hidden]="!(editForm.controls.motivazione?.dirty && editForm.controls.motivazione?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.motivazione?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.listaContatti.note" for="field_note">Note</label>
+                    <textarea class="form-control" name="note" id="field_note"
+                        [(ngModel)]="listaContatti.note" ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.listaContatti.committente" for="field_cliente">Committente</label>
+                    <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="listaContatti.clienteId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clienteOption.id" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.cognome}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.listaContatti.incarico" for="field_incarico">Incarico</label>
+                    <select class="form-control" id="field_incarico" name="incarico" [(ngModel)]="listaContatti.incaricoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="incaricoOption.id" *ngFor="let incaricoOption of incaricos; trackBy: trackIncaricoById">{{incaricoOption.riferimento}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

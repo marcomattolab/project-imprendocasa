@@ -1,0 +1,9 @@
+{
+    "imprendocasaApp": {
+        "CategoriaIncarico": {
+            "null": "",
+            "RESIDENZIALE": "RESIDENZIALE",
+            "COMMERCIALE": "COMMERCIALE"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "nodes":[
+{ "key":"Bozza", "color":"lightblue" },
+{ "key":"Attivo", "color":"orange" },
+{ "key":"Concluso", "color":"lightgreen" },
+{ "key":"Interrotto", "color":"pink" },
+{ "key":"Scaduto", "color":"pink" }
+  ],
+  "links":[
+{ "from":"Bozza", "to":"Attivo" },
+{ "from":"Attivo", "to":"Concluso" },
+{ "from":"Attivo", "to":"Interrotto" },
+{ "from":"Attivo", "to":"Scaduto" },
+{ "from":"Interrotto", "to":"Attivo" },
+{ "from":"Scaduto", "to":"Attivo" }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "imprendocasaApp": {
+    "cliente": {
+      "abilitato": "Enabled",
+      "alertCompleanno": "Birthday Alert",
+      "cap": "Cap",
+      "citta": "City",
+      "titolo": "Title",
+      "ragioneSociale": "Ragione Sociale",
+      "agente": "Agent",
+      "codiceAntiriciclaggio": "money laundering code",
+      "codiceFiscale": "Fiscal code / VAT number ",
+      "cognome": "Surname",
+      "completamento": "Completad",
+      "created": "A new Customer is created with identifier {{ param }}",
+      "dataNascita": "Birthday Date",
+      "dataNascitaRange": "Birthday Date Range (From / To)",
+      "delete": {
+        "question": "Are you sure you want to delete Customer {{ id }}?"
+      },
+      "deleted": "A Customer is deleted with identifier {{ param }}",
+      "detail": {
+        "title": "Customer"
+      },
+      "email": "Email",
+      "home": {
+        "createLabel": "New Customer",
+        "createOrEditLabel": "Create or edit a Customer",
+        "title": "Customers"
+      },
+      "importoProvvigioni": "Total Commission",
+      "provvigionimovimentate": "Commission",
+      "provvigionimovimentateRange": "Commission (Range From / To)",
+      "importoProvvigioniDerivate": "Derived Commission",
+      "importoProvvigioniDerivateRange": "Derived Commission (Range From / To)",
+      "incarico": "Transaction",
+      "indirizzo": "Address",
+      "listaContatti": "Contacts",
+      "meseNascita": "Birthday Month",
+      "nome": "Name",
+      "note": "Note",
+      "numeroPratiche": "Number Contract",
+      "numeroPraticheRange": "Number Contract (Range From / To)",
+      "numeroSegnalazioni": "Number Advertise",
+      "numeroSegnalazioniRange": "Number Advertise (Range From/ To)",
+      "provincia": "Province",
+      "provvigione": "Commission",
+      "punteggio": "Score",
+      "ragioneSociale": "Business Name",
+      "regione": "Region",
+      "stampaEtichette": "Print label",
+      "tag": "Customer Type",
+      "telefono": "Title",
+      "tooltip": {
+        "selezionareCliente": "Select at least one costumer"
+      },
+      "telefonoCellulare": "Mobile Phone",
+      "telefonoFisso": "Phone",
+      "telefono": "Phone Number",
+      "importoProvvigioniRange": "Total Commission  (Range From / To)",
+      "updated": "A Customer is updated with identifier {{ param }}"
+    }
+  }
+}

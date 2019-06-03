@@ -1,0 +1,9 @@
+{
+    "imprendocasaApp": {
+        "TipoIndirizzo": {
+            "null": "",
+            "CASA": "CASA",
+            "LAVORO": "LAVORO"
+        }
+    }
+}

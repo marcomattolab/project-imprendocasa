@@ -1,0 +1,24 @@
+{
+    "imprendocasaApp": {
+        "files": {
+            "home": {
+                "title": "File",
+                "createLabel": "Genera un nuovo File",
+                "createOrEditLabel": "Genera o modifica un File"
+            },
+            "created": "È stato generato un nuovo File con identificatore {{ param }}",
+            "updated": "È stato aggiornato File identificato da {{ param }}",
+            "deleted": "È stato eliminato File con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare File {{ id }}?"
+            },
+            "detail": {
+                "title": "File"
+            },
+            "nome": "Nome",
+            "dimensione": "Dimensione",
+            "estensione": "Estensione",
+            "immobile": "Immobile"
+        }
+    }
+}

@@ -1,0 +1,134 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cliente">
+            <h2><span jhiTranslate="imprendocasaApp.cliente.detail.title">Cliente</span> {{cliente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <section class="container-dl">
+                <h3 style="text-align: center">Dettagli cliente</h3>
+                <!-- Standard sized summary table    -->
+                <article class="summary-table">
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--left">
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Nome</dt>
+                                <dd class="summary-table__value">{{cliente.nome}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Cognome</dt>
+                                <dd class="summary-table__value">{{cliente.cognome}}</dd>
+                            </div>
+                            <!-- 
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Codice Fiscale</dt>
+                                <dd class="summary-table__value">{{cliente.codiceFiscale}}</dd>
+                            </div>
+                            -->
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Alert Compleanno</dt>
+                                <dd class="summary-table__value">{{cliente.alertCompleanno}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Data Nascita</dt>
+                                <dd class="summary-table__value">{{cliente.dataNascita}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Provincia</dt>
+                                <dd class="summary-table__value">{{cliente.provincia}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Citta</dt>
+                                <dd class="summary-table__value">{{cliente.citta}}</dd>
+                            </div>
+                              <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Indirizzo</dt>
+                                <dd class="summary-table__value">{{cliente.indirizzo}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Cap</dt>
+                                <dd class="summary-table__value summary-table__value--primary">{{cliente.cap}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Regione</dt>
+                                <dd class="summary-table__value">{{cliente.regione}}</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--right">
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Telefono Fisso</dt>
+                                <dd class="summary-table__value">{{cliente.telefonoFisso}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Telefono Cellulare</dt>
+                                <dd class="summary-table__value">{{cliente.telefonoCellulare}}</dd>
+                            </div>
+                          
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Note</dt>
+                                <dd class="summary-table__value">{{cliente.note}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key">Abilitato</dt>
+                                <dd class="summary-table__value">{{cliente.abilitato}}</dd>
+                            </div>
+                            
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.cliente.codiceAntiriciclaggio">Codice Antiriciclaggio</span></dt>
+                                <dd class="summary-table__value">{{cliente.codiceAntiriciclaggio}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.cliente.importoProvvigioni">Importo Provvigioni</span></dt>
+                                <dd class="summary-table__value">{{cliente.importoProvvigioni}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.cliente.numeroPratiche">Numero Pratiche</span></dt>
+                                <dd class="summary-table__value">{{cliente.numeroPratiche}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.cliente.numeroSegnalazioni">Numero Segnalazioni</span></dt>
+                                <dd class="summary-table__value">{{cliente.numeroSegnalazioni}}</dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.cliente.punteggio">Punteggio</span></dt>
+                                <dd class="summary-table__value">{{cliente.punteggio}}</dd>
+                            </div>
+
+                            <!-- 
+                            <dt><span jhiTranslate="imprendocasaApp.cliente.tag">Tag</span></dt>
+			                <dd>
+			                    <span *ngFor="let tag of cliente.tags; let last = last">
+			                        <a [routerLink]="['/tag', tag?.id, 'view' ]">{{tag.denominazione}}</a>{{last ? '' : ', '}}
+			                    </span>
+			                </dd>
+                             -->
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.cliente.tag">Tag</span></dt>
+                                <dd class="summary-table__value">
+	                                 <span *ngFor="let tag of cliente.tags; let last = last">
+				                        <a [routerLink]="['/tag', tag?.id, 'view' ]">{{tag.denominazione}}</a>{{last ? '' : ', '}}
+				                    </span>
+                                </dd>
+                            </div>
+                            
+                        </dl>
+                    </section>
+                </article>
+            </section>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente', cliente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

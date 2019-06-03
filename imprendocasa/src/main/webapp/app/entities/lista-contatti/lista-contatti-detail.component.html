@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="listaContatti">
+            <h2><span
+                    jhiTranslate="imprendocasaApp.listaContatti.detail.title">Lista Contatti</span> {{listaContatti.id}}
+            </h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <section class="container-dl">
+                <h3 style="text-align: center">Dettagli Partner</h3>
+                <!-- Standard sized summary table    -->
+                <article class="summary-table">
+                    <section class="summary-table__section">
+                        <dl class="summary-table__list summary-table__list--left">
+                            <div class="summary-table__list-item">
+                            <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.listaContatti.dateTime">Date Time</span></dt>
+                            <dd class="summary-table__value">
+                                <span>{{listaContatti.dateTime}}</span>
+                            </dd></div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.listaContatti.esito">Esito</span></dt>
+                                <dd class="summary-table__value">
+                                    <span jhiTranslate="{{'imprendocasaApp.EsitoChiamata.' + listaContatti.esito}}">{{listaContatti.esito}}</span>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.listaContatti.motivazione">Motivazione</span>
+                                </dt>
+                                <dd class="summary-table__value">
+                                    <span>{{listaContatti.motivazione}}</span>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.listaContatti.note">Note</span></dt>
+                                <dd class="summary-table__value">
+                                    <span>{{listaContatti.note}}</span>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.listaContatti.committente">Committente</span>
+                                </dt>
+                                <dd class="summary-table__value">
+                                    <div *ngIf="listaContatti.clienteId">
+                                        <a [routerLink]="['/cliente', listaContatti.clienteId, 'view']">{{listaContatti.clienteCognome}}</a>
+                                    </div>
+                                </dd>
+                            </div>
+                            <div class="summary-table__list-item">
+                                <dt class="summary-table__key"><span jhiTranslate="imprendocasaApp.listaContatti.incarico">Incarico</span></dt>
+                                <dd class="summary-table__value">
+                                    <div *ngIf="listaContatti.incaricoId">
+                                        <a [routerLink]="['/incarico', listaContatti.incaricoId, 'view']">{{listaContatti.incaricoRiferimento}}</a>
+                                    </div>
+                                </dd>
+                            </div>
+                        </dl>
+                    </section>
+                </article>
+
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+
+                <button type="button"
+                        [routerLink]="['/lista-contatti', listaContatti.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+        </div>
+    </div>
+</div>

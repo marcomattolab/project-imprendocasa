@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: it.arancia.web.rest.AccountResourceIntTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in it.arancia.web.rest.AccountResourceIntTest
+initializationError(it.arancia.web.rest.AccountResourceIntTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.Exception: No runnable methods
+

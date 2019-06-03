@@ -1,0 +1,17 @@
+{
+    "imprendocasaApp": {
+        "Professioni": {
+            "null": "",
+            "NOTAIO": "NOTAIO",
+            "AVVOCATO": "AVVOCATO",
+            "ARCHITETTO": "ARCHITETTO",
+            "INTERMEDIARIO": "INTERMEDIARIO",
+            "AMMINISTRATORE": "AMMINISTRATORE",
+            "BANCARIO": "BANCARIO",
+            "PORTIERE": "PORTIERE",
+            "ESPERTO": "ESPERTO",
+            "INGEGNERE": "INGEGNERE",
+            "FREELANCE": "FREELANCE"
+        }
+    }
+}

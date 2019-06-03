@@ -1,0 +1,23 @@
+{
+    "imprendocasaApp": {
+        "professione": {
+            "home": {
+                "title": "Professioni",
+                "createLabel": "Genera un nuovo Professione",
+                "createOrEditLabel": "Genera o modifica un Professione"
+            },
+            "created": "&Egrave; stato generato un nuovo Professione con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Professione identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Professione con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Professione {{ id }}?"
+            },
+            "detail": {
+                "title": "Professione"
+            },
+            "codice": "Codice",
+            "denominazione": "Denominazione",
+            "abilitato": "Abilitato"
+        }
+    }
+}

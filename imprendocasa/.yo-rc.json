@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.arancia",
+      "nativeLanguage": "it"
+    },
+    "jhipsterVersion": "5.6.0",
+    "applicationType": "monolith",
+    "baseName": "imprendocasa",
+    "packageName": "it.arancia",
+    "packageFolder": "it/arancia",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "rememberMeKey": "3ffa9c3e41e0544a160ed45725a660d0cfeb09380a277936abb4a8bdeacb7024cd389990fe55091b77db85817765f10bc7e1",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "it",
+    "languages": [
+      "it",
+      "en"
+    ]
+  },
+  "generator-jhipster-entity-audit": {
+    "auditFramework": "custom"
+  }
+}

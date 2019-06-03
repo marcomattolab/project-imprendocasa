@@ -1,0 +1,13 @@
+{
+    "imprendocasaApp": {
+        "CanaleNotifica": {
+            "null": "",
+            "MAIL": "MAIL",
+            "SMS": "SMS",
+            "FACEBOOK": "FACEBOOK",
+            "TWITTER": "TWITTER",
+            "INSTAGRAM": "INSTAGRAM",
+            "RACCOMANDATA": "RACCOMANDATA"
+        }
+    }
+}

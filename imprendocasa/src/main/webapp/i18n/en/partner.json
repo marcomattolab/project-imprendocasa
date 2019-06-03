@@ -1,0 +1,37 @@
+{
+    "imprendocasaApp": {
+        "partner": {
+            "abilitato": "Enabled",
+            "cap": "Cap",
+            "citta": "City",
+            "codiceFiscale": "Fiscal Code",
+            "cognome": "Surname",
+            "created": "A new Partner is created with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Partner {{ id }}?"
+            },
+            "deleted": "A Partner is deleted with identifier {{ param }}",
+            "detail": {
+                "title": "Partner"
+            },
+            "email": "Email",
+            "home": {
+                "createLabel": "New Partner",
+                "createOrEditLabel": "Create or edit a Partner",
+                "title": "Partners"
+            },
+            "incarico": "Transaction",
+            "indirizzo": "Address",
+            "nome": "Name",
+            "note": "Note",
+            "professione": "Job",
+            "provincia": "Province",
+            "regione": "Region",
+            "telefonoCellulare": "Mobile Phone",
+            "telefonoFisso": "Phone",
+            "tipoIndirizzo": "Address Type",
+            "updated": "A Partner is updated with identifier {{ param }}",
+            "alertEsistenza": "Partner it is already present in the system. If you wish to proceed, press Save again."
+        }
+    }
+}

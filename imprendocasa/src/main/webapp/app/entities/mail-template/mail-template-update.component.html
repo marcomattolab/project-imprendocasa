@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-mail-template-heading" jhiTranslate="imprendocasaApp.mailTemplate.home.createOrEditLabel">Create
+                or edit a Mail Template</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!mailTemplate.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                           [(ngModel)]="mailTemplate.id" readonly/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.mailTemplate.codice" for="field_codice">Codice</label>
+                    <input type="text" class="form-control" name="codice" id="field_codice"
+                        [(ngModel)]="mailTemplate.codice" required/>
+                    <div [hidden]="!(editForm.controls.codice?.dirty && editForm.controls.codice?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.codice?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.mailTemplate.categoria" for="field_categoria">Categoria</label>
+                    <select class="form-control" name="categoria" [(ngModel)]="mailTemplate.categoria" id="field_categoria"  required>
+                        <option value="COMPLEANNO">{{'imprendocasaApp.CategoriaNotifica.COMPLEANNO' | translate}}</option>
+                        <option value="FATTURA">{{'imprendocasaApp.CategoriaNotifica.FATTURA' | translate}}</option>
+                        <option value="PROMOZIONE">{{'imprendocasaApp.CategoriaNotifica.PROMOZIONE' | translate}}</option>
+                        <option value="ALTRO">{{'imprendocasaApp.CategoriaNotifica.ALTRO' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.categoria?.dirty && editForm.controls.categoria?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.categoria?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.mailTemplate.oggetto" for="field_oggetto">Oggetto</label>
+                    <input type="text" class="form-control" name="oggetto" id="field_oggetto"
+                        [(ngModel)]="mailTemplate.oggetto" />
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label class="form-control-label" jhiTranslate="imprendocasaApp.mailTemplate.modello"-->
+                           <!--for="field_modello">Modello</label>-->
+                    <!--<textarea class="form-control" name="modello" id="field_modello"-->
+                              <!--[(ngModel)]="mailTemplate.modello" required></textarea>-->
+                    <!--<div [hidden]="!(editForm.controls.modello?.dirty && editForm.controls.modello?.invalid)">-->
+                        <!--<small class="form-text text-danger"-->
+                               <!--[hidden]="!editForm.controls.modello?.errors?.required"-->
+                               <!--jhiTranslate="entity.validation.required">-->
+                            <!--This field is required.-->
+                        <!--</small>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </form>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="imprendocasaApp.mailTemplate.modello">Modello</label>
+            <div class="cke-template" [ngClass]="getModelloValidity()">
+                <ck-editor name="ckeditor" [(ngModel)]="mailTemplate.modello" skin="moono-lisa"
+                           [config]="ckEditorConfig" [fullPage]="true"></ck-editor>
+            </div>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="abilitato" id="field_abilitato"
+                   [(ngModel)]="mailTemplate.abilitato"/>
+            <label class="form-check-label" jhiTranslate="imprendocasaApp.mailTemplate.abilitato" for="field_abilitato">Abilitato</label>
+        </div>
+
+        <div>
+            <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="button" id="save-entity" [disabled]="saveButtonIsDisabled()"
+                    class="btn btn-primary" (click)="save()">
+                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+
+    </div>
+</div>

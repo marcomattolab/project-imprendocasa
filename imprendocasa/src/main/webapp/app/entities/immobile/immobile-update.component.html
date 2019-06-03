@@ -1,0 +1,190 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate #editForm="ngForm">
+            <h2 id="jhi-immobile-heading" jhiTranslate="imprendocasaApp.immobile.home.createOrEditLabel">Create or edit a Immobile</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <!-- <div class="form-group" [hidden]="!immobile.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="mdl-textfield__input" id="id" name="id" [(ngModel)]="immobile.id" readonly />
+                </div> -->
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.codice" for="field_codice">Codice</label>
+                            <input type="text" class="mdl-textfield__input" name="codice" id="field_codice" [(ngModel)]="immobile.codice" required/>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.indirizzo" for="field_indirizzo">Indirizzo</label>
+                            <input type="text" class="mdl-textfield__input" name="indirizzo" id="field_indirizzo" [(ngModel)]="immobile.indirizzo" placeholder="search for location"
+                                autocorrect="off" autocapitalize="off" spellcheck="off" #search [formControl]="searchControl"
+                                required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.descrizione" for="field_descrizione">Descrizione</label>
+                            <textarea class="mdl-textfield__input" name="descrizione" id="field_descrizione" [(ngModel)]="immobile.descrizione" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.cap" for="field_cap">Cap</label>
+                            <input type="text" class="mdl-textfield__input" name="cap" id="field_cap" [(ngModel)]="immobile.cap" maxlength="20" required/>
+                            <div [hidden]="!(editForm.controls.cap?.dirty && editForm.controls.cap?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!editForm.controls.cap?.errors?.maxlength" jhiTranslate="entity.validation.maxlength"
+                                    translateValues="{ max: 20 }">
+                                    This field cannot be longer than 20 characters.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.regione" for="field_regione">Regione</label>
+                            <input type="text" class="mdl-textfield__input" name="regione" id="field_regione" [(ngModel)]="immobile.regione" required/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.provincia" for="field_provincia">Provincia</label>
+                            <input type="text" class="mdl-textfield__input" name="provincia" id="field_provincia" [(ngModel)]="immobile.provincia" required/>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.citta" for="field_citta">Citta</label>
+                            <input type="text" class="mdl-textfield__input" name="citta" id="field_citta" [(ngModel)]="immobile.citta" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.foglio" for="field_foglio">Foglio</label>
+                            <input type="text" class="mdl-textfield__input" name="foglio" id="field_foglio" [(ngModel)]="immobile.foglio" required/>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.particella" for="field_particella">Particella</label>
+                            <input type="text" class="mdl-textfield__input" name="particella" id="field_particella" [(ngModel)]="immobile.particella"
+                                required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.sub" for="field_sub">Sub</label>
+                            <input type="text" class="mdl-textfield__input" name="sub" id="field_sub" [(ngModel)]="immobile.sub" />
+                        </div>
+                        <div class="col-sm-6">
+                            <label jhiTranslate="imprendocasaApp.cliente.agente" for="field_agente">Agente</label>
+                            <select class="mdl-textfield__input" id="field_agente" name="tag" [(ngModel)]="immobile.agente" [disabled]="users && users.length === 1">
+                                <option></option>
+                                <option [ngValue]="agente.login" *ngFor="let agente of users; trackBy: trackItemById">
+                                    {{agente.firstName}} {{agente.lastName}} ({{agente.login}})</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.note" for="field_note">Note</label>
+                            <textarea class="mdl-textfield__input" name="note" id="field_note" [(ngModel)]="immobile.note"></textarea>
+                        </div>
+
+
+                        <!--
+                         <div  class="col-sm-3">
+                    			<label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.datiCatastali" for="field_datiCatastali">Dati Catastali</label>
+                    			<input type="text" class="form-control" name="datiCatastali" id="field_datiCatastali" [(ngModel)]="immobile.datiCatastali" />
+                			</div>
+                        -->
+
+                        <!--
+                        <div class="col-sm-3">
+                            <label class="form-control-label" jhiTranslate="imprendocasaApp.immobile.locazione" for="field_locazione">Locazione</label>
+                            <select class="mdl-textfield__input" id="field_locazione" name="locazione" [(ngModel)]="immobile.locazioneId">
+                                <input type="text" class="mdl-textfield__input" name="indirizzo" id="field_indirizzo" [(ngModel)]="immobile.indirizzo" />
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="geolocalizzazioneOption.id" *ngFor="let geolocalizzazioneOption of locaziones; trackBy: trackGeolocalizzazioneById">{{geolocalizzazioneOption.immobile}}</option>
+                            </select>
+                        </div>
+                        -->
+                    </div>
+                    <div *ngIf="showUpload">
+                        <div *ngIf="currentFileUpload" class="progress">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                                aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                                {{progress.percentage}}%</div>
+                        </div>
+
+                        <!--
+                        <div class="upload-btn-wrapper-custom" style="padding-left: 0px;">
+                        		<button class="btn-custom">Scegli File</button>
+                        		<input  type="file" (change)="selectFile($event)" multiple />
+                    		</div>
+                    		-->
+                        <p-fileUpload name="myfiles[]" chooseLabel="Scegli File" uploadLabel="carica" cancelLabel="annulla" maxFileSize="1000000"
+                            auto="auto" [multiple]="true" customUpload="true" (uploadHandler)="myUploader($event)">
+                            <ng-template pTemplate="toolbar">
+                                <p-button label="Upload" icon="fa fa-upload" iconPos="left" (onClick)="myUploaderEnd($event)"></p-button>
+                            </ng-template>
+                            <ng-template pTemplate="content">
+                            </ng-template>
+                        </p-fileUpload>
+                        <div class="table-responsive mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo" *ngIf="uploadArray">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>
+                                        <span>Nome File</span>
+                                    </th>
+                                    <th>
+                                        <span>Estensione</span>
+                                    </th>
+                                    <th>
+                                        <span>Download</span>
+                                    </th>
+                                    <th>
+                                        <span>Elimina</span>
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr (change)="uploadArray" *ngFor="let file of uploadArray[0]">
+                                        <td>{{file.nome}}</td>
+                                        <td>{{file.estensione}}</td>
+                                        <td>
+                                            <span>
+                                                <a href="api/files/{{immobile.id}}/{{file.nome}}">Download</a>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-dark" (click)="delete(file.id)">Elimina</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                            <fa-icon [icon]="'ban'"></fa-icon>&nbsp;
+                            <span jhiTranslate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" (click)="save()" class="btn btn-primary">
+                            <fa-icon [icon]="'save'"></fa-icon>&nbsp;
+                            <span jhiTranslate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

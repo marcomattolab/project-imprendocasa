@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-notifiche-heading" jhiTranslate="imprendocasaApp.notifiche.home.createOrEditLabel">Create or edit a Notifiche</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!notifiche.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="notifiche.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.canaleNotifica" for="field_canaleNotifica">Canale Notifica</label>
+                    <select class="form-control" name="canaleNotifica" [(ngModel)]="notifiche.canaleNotifica" id="field_canaleNotifica"  required>
+                        <option value="MAIL">{{'imprendocasaApp.CanaleNotifica.MAIL' | translate}}</option>
+                        <option value="SMS">{{'imprendocasaApp.CanaleNotifica.SMS' | translate}}</option>
+                        <option value="FACEBOOK">{{'imprendocasaApp.CanaleNotifica.FACEBOOK' | translate}}</option>
+                        <option value="TWITTER">{{'imprendocasaApp.CanaleNotifica.TWITTER' | translate}}</option>
+                        <option value="INSTAGRAM">{{'imprendocasaApp.CanaleNotifica.INSTAGRAM' | translate}}</option>
+                        <option value="RACCOMANDATA">{{'imprendocasaApp.CanaleNotifica.RACCOMANDATA' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.canaleNotifica?.dirty && editForm.controls.canaleNotifica?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.canaleNotifica?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.tipoNotifica" for="field_tipoNotifica">Tipo Notifica</label>
+                    <select class="form-control" name="tipoNotifica" [(ngModel)]="notifiche.tipoNotifica" id="field_tipoNotifica"  required>
+                        <option value="MANUALE">{{'imprendocasaApp.TipoNotifica.MANUALE' | translate}}</option>
+                        <option value="AUTOMATICO">{{'imprendocasaApp.TipoNotifica.AUTOMATICO' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.tipoNotifica?.dirty && editForm.controls.tipoNotifica?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tipoNotifica?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.categoriaNotifica" for="field_categoriaNotifica">Categoria Notifica</label>
+                    <select class="form-control" name="categoriaNotifica" [(ngModel)]="notifiche.categoriaNotifica" id="field_categoriaNotifica"  required>
+                        <option value="COMPLEANNO">{{'imprendocasaApp.CategoriaNotifica.COMPLEANNO' | translate}}</option>
+                        <option value="FATTURA">{{'imprendocasaApp.CategoriaNotifica.FATTURA' | translate}}</option>
+                        <option value="PROMOZIONE">{{'imprendocasaApp.CategoriaNotifica.PROMOZIONE' | translate}}</option>
+                        <option value="ALTRO">{{'imprendocasaApp.CategoriaNotifica.ALTRO' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.categoriaNotifica?.dirty && editForm.controls.categoriaNotifica?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.categoriaNotifica?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.oggettoNotifica" for="field_oggettoNotifica">Oggetto Notifica</label>
+                    <input type="text" class="form-control" name="oggettoNotifica" id="field_oggettoNotifica"
+                        [(ngModel)]="notifiche.oggettoNotifica" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.testoNotifica" for="field_testoNotifica">Testo Notifica</label>
+                    <textarea class="form-control" name="testoNotifica" id="field_testoNotifica"
+                        [(ngModel)]="notifiche.testoNotifica" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.numeroDestinatari" for="field_numeroDestinatari">Numero Destinatari</label>
+                    <input type="number" class="form-control" name="numeroDestinatari" id="field_numeroDestinatari"
+                        [(ngModel)]="notifiche.numeroDestinatari" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.destinatariNotifica" for="field_destinatariNotifica">Destinatari Notifica</label>
+                    <textarea class="form-control" name="destinatariNotifica" id="field_destinatariNotifica"
+                        [(ngModel)]="notifiche.destinatariNotifica" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.esitoNotifica" for="field_esitoNotifica">Esito Notifica</label>
+                    <select class="form-control" name="esitoNotifica" [(ngModel)]="notifiche.esitoNotifica" id="field_esitoNotifica"  required>
+                        <option value="DA_INVIARE">{{'imprendocasaApp.TipoEsito.DA_INVIARE' | translate}}</option>
+                        <option value="INVIATA">{{'imprendocasaApp.TipoEsito.INVIATA' | translate}}</option>
+                        <option value="NON_INVIATA">{{'imprendocasaApp.TipoEsito.NON_INVIATA' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.esitoNotifica?.dirty && editForm.controls.esitoNotifica?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.esitoNotifica?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="imprendocasaApp.notifiche.dettagliEsito" for="field_dettagliEsito">Dettagli Esito</label>
+                    <textarea class="form-control" name="dettagliEsito" id="field_dettagliEsito"
+                        [(ngModel)]="notifiche.dettagliEsito" ></textarea>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
